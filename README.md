@@ -27,7 +27,6 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
 |email|string|null: false, unique: true|
 |nickname|string|null: false, index: true|
 |password|string|null: false|
@@ -55,7 +54,6 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|profile_id|integer|null: false, foreign_key: true|
 |family_name|string|null: false|
 |first_name|string|null: false|
 |family_kana_name|string|null: false|
@@ -79,7 +77,6 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_image_id|integer|null: false, foreign_key: true|
 |user_image|string|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
 
@@ -91,7 +88,6 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|credit_card_id|integer|null: false|
 |card_number|integer|null: false|
 |card_limit_year|date|null: false|
 |card_limit_month|date|null: false|
@@ -106,7 +102,6 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|trading_person_id|integer|null: false, foreign_key: true|
 |buyer_id|integer|null: false, foreign_key: true|
 |seller_id|integer|null: false, foreign_key: true|
 
@@ -120,7 +115,6 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|good_id|integer|null: false, foreign_key: true|
 |good|integer|---|
 |user_id|integer|null: false, foreign_key: true|
 |item_id|integer|null: false, foreign_key: true|
@@ -134,7 +128,6 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|item_id|integer|null: false, foreign_key: true|
 |item_name|string|null: false, index: true|
 |item_description|string|null: false|
 |item_condition|string|null: false|
@@ -163,7 +156,6 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|item_image_id|integer|null: false, foreign_key: true|
 |item_image|string|---|
 |item_id|integer|null: false, foreign_key: true|
 
@@ -175,7 +167,6 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|category_id|integer|null: false, foreign_key: true|
 |categorie_name|string|null: false, index: true|
 |item_id|integer|null: false, foreign_key: true|
 
@@ -187,7 +178,6 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|brand_id|integer|null: false, foreign_key: true|
 |brand_name|string|null: false, index: true|
 |item_id|integer|null: false, foreign_key: true|
 
@@ -199,10 +189,9 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|negotiation_comment_id|integer|---|
 |negotiation_comment|string|---|
 |item_id|integer|null: false, foreign_key: true|
-|trading_person_id_id|integer|null: false, foreign_key: true|
+|trading_person_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :item
@@ -213,9 +202,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|review_id|integer|null: false, foreign_key: true|
 |review|string|---|
-|trading_person_id_id|integer|null: false, foreign_key: true|
+|trading_person_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :trading_person
