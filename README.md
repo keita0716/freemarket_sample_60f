@@ -34,8 +34,6 @@ Things you may want to cover:
 |user_image_id|integer|null: false, foreign_key: true|
 |profile_id|integer|null: false, foreign_key: true|
 |credit_card_id|integer|null: false, foreign_key: true|
-|like_id|integer|null: false, foreign_key: true|
-|review_id|integer|null: false|
 |negotiation_comment_id|integer|null: false|
 |trading_person_id|integer|null: false|
 |item_id|integer|null: false|
