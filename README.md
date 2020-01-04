@@ -129,9 +129,9 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|item_name|string|null: false, index: true|
-|item_description|string|null: false|
-|item_condition|string|null: false|
+|name|string|null: false, index: true|
+|description|string|null: false|
+|condition|string|null: false|
 |size|integer|null: false|
 |delivery_charge|integer|null: false|
 |shipping_date|date|null: false|
