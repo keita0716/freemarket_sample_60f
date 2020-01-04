@@ -29,7 +29,7 @@ Things you may want to cover:
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |email|string|null: false, unique: true|
-|nickname|string|null: false|
+|nickname|string|null: false, index: true|
 |password|string|null: false|
 |comment|string|---|
 |user_image_id|integer|null: false, foreign_key: true|
@@ -135,7 +135,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |item_id|integer|null: false, foreign_key: true|
-|item_name|string|null: false|
+|item_name|string|null: false, index: true|
 |item_description|string|null: false|
 |item_condition|string|null: false|
 |size|integer|null: false|
@@ -176,7 +176,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |category_id|integer|null: false, foreign_key: true|
-|categorie_name|string|null: false|
+|categorie_name|string|null: false, index: true|
 |item_id|integer|null: false, foreign_key: true|
 
 ### Association
@@ -188,7 +188,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |brand_id|integer|null: false, foreign_key: true|
-|brand_name|string|null: false|
+|brand_name|string|null: false, index: true|
 |item_id|integer|null: false, foreign_key: true|
 
 ### Association
