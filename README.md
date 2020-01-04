@@ -104,7 +104,8 @@ Things you may want to cover:
 |seller_id|integer|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :user
+- belongs_to :buyer_id, class_name: "User"
+- belongs_to :seller_id, class_name: "User"
 - has_many :negotiation_comments
 - has_many :reviews
 - has_many :items
