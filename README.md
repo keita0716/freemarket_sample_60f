@@ -30,23 +30,22 @@ Things you may want to cover:
 |email|string|null: false, unique: true|
 |nickname|string|null: false, index: true|
 |password|string|null: false|
-|comment|string|---|
+|self_introduction|string|---|
 |user_image_id|integer|null: false, foreign_key: true|
 |profile_id|integer|null: false, foreign_key: true|
 |credit_card_id|integer|null: false, foreign_key: true|
-|good_id|integer|null: false, foreign_key: true|
-|review_id|integer|null: false, foreign_key: true|
-|negotiation_comment_id|integer|null: false, foreign_key: true|
-|trading_person_id|integer|null: false, foreign_key: true|
-|item_id|integer|null: false, foreign_key: true|
+|like_id|integer|null: false, foreign_key: true|
+|review_id|integer|null: false|
+|negotiation_comment_id|integer|null: false|
+|trading_person_id|integer|null: false|
+|item_id|integer|null: false|
 
 ### Association
 - has_many :items
-- has_many :items
-- has_many :goods
+- has_many :likes
 - has_many :trading_persons
 - has_one :user_image
-- has_one :credit_card
+- has_many :credit_card
 - has_one :profile
 
 
@@ -77,7 +76,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_image|string|null: false, foreign_key: true|
+|image|string|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
 
 ### Association
@@ -102,6 +101,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
+|item_id|integer|null: false|
 |buyer_id|integer|null: false, foreign_key: true|
 |seller_id|integer|null: false, foreign_key: true|
 
@@ -109,13 +109,14 @@ Things you may want to cover:
 - belongs_to :user
 - has_many :negotiation_comments
 - has_many :reviews
+- has_many :items
 
 
-## goodsテーブル
+## likesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|good|integer|---|
+|like|integer|---|
 |user_id|integer|null: false, foreign_key: true|
 |item_id|integer|null: false, foreign_key: true|
 
@@ -137,6 +138,7 @@ Things you may want to cover:
 |shipping_method|string|null: false|
 |shipping_prefecture|string|null: false|
 |price|string|null: false|
+|trade_status|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |brand_id|integer|null: false, foreign_key: true|
 |category_id|integer|null: false, foreign_key: true|
@@ -147,8 +149,9 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :categorie
 - belongs_to :brand
+- belongs_to :trading_person
 - has_many :item_images
-- has_many :goods
+- has_many :likes
 - has_many :negotiation_comments
 - has_many :reviews
 
@@ -156,7 +159,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|item_image|string|---|
+|image|string|---|
 |item_id|integer|null: false, foreign_key: true|
 
 ### Association
@@ -167,8 +170,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|categorie_name|string|null: false, index: true|
-|item_id|integer|null: false, foreign_key: true|
+|name|string|null: false, index: true|
+|item_id|integer|null: false|
 
 ### Association
 - has_many :items
@@ -178,8 +181,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|brand_name|string|null: false, index: true|
-|item_id|integer|null: false, foreign_key: true|
+|name|string|null: false, index: true|
+|item_id|integer|null: false|
 
 ### Association
 - has_many :items
@@ -204,6 +207,8 @@ Things you may want to cover:
 |------|----|-------|
 |review|string|---|
 |trading_person_id|integer|null: false, foreign_key: true|
+|item_id|integer|null: false, foreign_key: true|
 
 ### Association
+- belongs_to :item
 - belongs_to :trading_person
