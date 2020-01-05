@@ -1,0 +1,290 @@
+html{
+  color:#000;
+  background:#f5f5f5;
+}
+
+.bk-black{
+  background-color: #eee !important;
+}
+.text-gray{
+  color: #888;
+}
+.select{
+  border-top: 2px solid #ea352d;
+}
+
+.main_block{
+  margin: 24px auto 0;
+  // padding: 0 0 40px;
+  width: 1020px;
+  // height: 100vh;
+  height: 100vh;
+  background-color: #f5f5f5;
+  &__left{
+    float: left;
+    width: 280px;
+    margin: 0 40px 0 0;
+    // background-color: #80ff86;
+    // height: 20vh;
+    &__menu{
+      background-repeat: no-repeat;
+      margin: 0;
+      padding: 0;
+      &__list{
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 0;
+        min-height: 48px;
+        .left-title{
+          margin: 40px 0 0;
+          font-size: 16px;
+          font-weight: bolder;
+        }
+        &__item{
+          position: relative;
+          display: block;
+          // min-height: 48px;
+          padding: 16px;
+          background: #fff;
+          font-size: 14px;
+          color: #333;
+          border-bottom:thin solid #f5f5f5;
+          text-decoration: none;
+          .icon {
+            position: absolute;
+            right: 16px;
+            top:40%;
+          }
+        }
+      }
+
+    }
+  }
+
+  &__right{
+    float: right;
+    width: 700px;
+    &__head{
+      position: relative;
+      height: 155px;
+      padding: 20px;
+      background: url(icon-back.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      text-align: center;
+      &>a{
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        color: #333;
+        text-decoration: none;
+        & span{
+          margin: 0 0 0 5px;
+          font-size: 16px;
+          font-weight: bolder;
+        }
+      }
+      &__icon {
+        overflow: hidden;
+        width: 60px;
+        height: 60px;
+        margin: 0 auto;
+        border-radius: 50%;
+      }
+      .icon-name{
+        margin: 8px 0 0;
+        font-size: 14px;
+        font-weight: bolder;
+      }
+      &____hyoka{
+        margin: 8px 0 0;
+        font-size: 0;
+      }
+    }
+    &__oshirase-todo{
+      margin: 0;
+      background: #fff;
+      &__mypage-tabs{
+        border: 0;
+        background: #eee;
+        font-size: 0;
+        font-weight: bolder;
+        & a{
+          position: relative;
+          display: block;
+          color: #333;
+          font-size: 16px;
+          line-height: 72px; 
+          width: 50%;
+          display: inline-block;
+          text-align: center;
+          background: #fff;
+          text-decoration: none;
+        }
+      }
+      &__body{
+        display: block;
+        &__list{
+          border-bottom: 1px solid #eee;
+          display: block;
+          min-height: 48px;
+          // padding: 16px;
+          color: #333;
+          text-decoration: none;
+          &__link{
+            display: block;
+            min-height: 40px;
+            padding: 16px;
+            color: #333;
+            & a{
+              text-decoration: none;
+            }
+            & img{
+              position: absolute;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              z-index: 1;
+              width: 100%;
+              position: relative;
+              overflow: hidden;
+              float: left;
+              width: 48px;
+              height: 48px;
+            }
+            &__body{
+              margin: 0 40px 0 68px;
+              font-size: 14px;
+              &__text{
+                overflow: hidden;
+                display: block;
+                display: -webkit-box;
+                max-height: 4.4em;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                text-overflow: ellipsis;
+                line-height: 1.5;
+              }
+            }
+          }
+        }
+        &__ichiran{
+          padding: 16px;
+          & a{
+            display: block;
+            height: 56px;
+            margin: 0 auto;
+            background: #eee;
+            color: #333;
+            line-height: 56px;
+            text-decoration: none;
+            text-align: center;
+          }
+        }
+      }
+    }
+    &__item{
+      margin: 40px 0 0;
+      background: #fff;
+      &__head{
+        padding: 0 16px;
+        background: #fafafa;
+        font-size: 16px;
+        line-height: 72px;
+        font-weight: bolder;
+      }
+      &__tab{
+        border: 0;
+        background-color: #fafafa;
+        font-size: 0;
+        & li{
+            width: 50%;
+            display: inline-block;
+            text-align: center;
+            vertical-align: top;
+            font-weight: bolder;
+            & a{
+              position: relative;
+              display: block;
+              color: #333;
+              font-size: 16px;
+              line-height: 72px;
+              text-decoration: none;
+            }
+        }
+        &__list{
+          border-bottom: 1px solid #eee;
+          display: block;
+          min-height: 48px;
+          // padding: 16px;
+          color: #333;
+          text-decoration: none;
+          &__link{
+            display: block;
+            min-height: 40px;
+            padding: 16px;
+            color: #333;
+            & a{
+              text-decoration: none;
+            }
+            & img{
+              position: absolute;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              z-index: 1;
+              width: 100%;
+              position: relative;
+              overflow: hidden;
+              float: left;
+              width: 48px;
+              height: 48px;
+            }
+            &__body{
+              margin: 0 40px 0 68px;
+              font-size: 14px;
+              &__text{
+                overflow: hidden;
+                display: block;
+                display: -webkit-box;
+                max-height: 4.4em;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                text-overflow: ellipsis;
+                line-height: 1.5;
+              }
+              &__status{
+                display: inline-block;
+                margin: 8px 0 0 0;
+                padding: 4px 6px;
+                border-radius: 2px;
+                font-size: 12px;
+                color: #fff;
+                background: #888;
+              }
+            }
+          }
+        }
+        &__ichiran{
+          padding: 16px;
+          & a{
+            display: block;
+            height: 56px;
+            margin: 0 auto;
+            background: #eee;
+            color: #333;
+            line-height: 56px;
+            text-decoration: none;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
