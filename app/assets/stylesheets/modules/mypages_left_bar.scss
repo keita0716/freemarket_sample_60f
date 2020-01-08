@@ -2,8 +2,6 @@
   float: left;
   width: 280px;
   margin: 0 40px 0 0;
-  // background-color: #80ff86;
-  // height: 20vh;
   &__menu{
     background-repeat: no-repeat;
     margin: 0;
@@ -21,7 +19,6 @@
       &__item{
         position: relative;
         display: block;
-        // min-height: 48px;
         padding: 16px;
         background: #fff;
         font-size: 14px;
