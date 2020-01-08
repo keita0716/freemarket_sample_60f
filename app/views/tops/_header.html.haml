@@ -1,6 +1,7 @@
 .upper_wrapper
-  %a{href: '*', id: 'logo'}
-    %img{src: 'image/fmarket_logo_red.svg'}
+  .logo
+    = link_to '*' do
+      = image_tag 'fmarket_logo_red.svg'
   %form.form{action: '*'}
     %input.form__text{type: "search", placeholder: "何かお探しですか？"}
     %button.form__button
