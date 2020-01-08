@@ -20,47 +20,7 @@ html{
   // height: 100vh;
   height: 100vh;
   background-color: #f5f5f5;
-  &__left{
-    float: left;
-    width: 280px;
-    margin: 0 40px 0 0;
-    // background-color: #80ff86;
-    // height: 20vh;
-    &__menu{
-      background-repeat: no-repeat;
-      margin: 0;
-      padding: 0;
-      &__list{
-        background-repeat: no-repeat;
-        margin: 0;
-        padding: 0;
-        min-height: 48px;
-        .left-title{
-          margin: 40px 0 0;
-          font-size: 16px;
-          font-weight: bolder;
-        }
-        &__item{
-          position: relative;
-          display: block;
-          // min-height: 48px;
-          padding: 16px;
-          background: #fff;
-          font-size: 14px;
-          color: #333;
-          border-bottom:thin solid #f5f5f5;
-          text-decoration: none;
-          .icon {
-            position: absolute;
-            right: 16px;
-            top:40%;
-          }
-        }
-      }
-
-    }
-  }
-
+  
   &__right{
     float: right;
     width: 700px;
