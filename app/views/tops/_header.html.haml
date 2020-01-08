@@ -1,0 +1,46 @@
+.upper_wrapper
+  %a{href: '*', id: 'logo'}
+    %img{src: 'image/fmarket_logo_red.svg'}
+  %form.form{action: '*'}
+    %input.form__text{type: "search", placeholder: "何かお探しですか？"}
+    %button.form__button
+      = fa_icon 'search'
+.lower_wrapper
+  %ul.left_contents
+    %li.left_contents__category
+      = link_to '*' do
+        .left_contents__category--icon
+          = fa_icon 'list'
+        .left_contents__category--letter
+          カテゴリーから探す
+    %li.left_contents__brand
+      = link_to '*' do
+        .left_contents__brand--icon
+          = fa_icon 'magic'
+        .left_contents__brand--letter
+          ブランドから探す
+  %ul.right_contents
+    %li.right_contents__like
+      = link_to '*' do
+        .right_contents__like--icon
+          = fa_icon 'heart'
+        .right_contents__like--letter
+          いいね！一覧
+    %li.right_contents__information
+      = link_to '*' do
+        .right_contents__information--icon
+          = fa_icon 'bell'
+        .right_contents__information--letter
+          お知らせ
+    %li.right_contents__todo_list
+      = link_to '*' do
+        .right_contents__todo_list--icon
+          = fa_icon 'check'
+        .right_contents__todo_list--letter
+          やることリスト 
+    %li.right_contents__mypage
+      = link_to '*' do
+        .right_contents__mypage--icon
+          = fa_icon 'user'
+        .right_contents__mypage--letter
+          マイページ
