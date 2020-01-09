@@ -1,0 +1,94 @@
+.header
+  = render 'tops/header'
+
+.main.clearfix
+  .main_block
+    = render 'shared/mypage_left_bar.haml'
+    .main_block__right
+      .main_block__right__head
+        = link_to '' do
+          .main_block__right__head__icon
+            = image_tag "icon.jpg", size: "60x60", alt: "icon"
+          .icon-name
+            = "名前"
+          .main_block__right__head__hyoka
+            = "評価"
+            %span 6
+            = "　出品数"
+            %span 7
+      .main_block__right__oshirase-todo
+        .main_block__right__oshirase-todo__mypage-tabs
+          = link_to ''  ,class: 'select'do
+            = "お知らせ"
+          = link_to '' , class: 'bk-black' do 
+            = "やることリスト"
+        .main_block__right__oshirase-todo__body
+          .main_block__right__oshirase-todo__body__list
+            .main_block__right__oshirase-todo__body__list__link
+              = link_to '' do
+                = image_tag "icon.jpg", size: "48x48", alt: "icon"
+                .main_block__right__oshirase-todo__body__list__link__body
+                  .main_block__right__oshirase-todo__body__list__link__body__text
+                    = "事務局からのメッセージ"
+                    .text-gray
+                      = fa_icon '', class: 'icon fa fa-clock-o'
+                      %span 10時間前
+            .main_block__right__oshirase-todo__body__list__link
+              = link_to '' do
+                = image_tag "icon.jpg", size: "48x48", alt: "icon"
+                .main_block__right__oshirase-todo__body__list__link__body
+                  .main_block__right__oshirase-todo__body__list__link__body__text
+                    = "事務局からのメッセージ"
+                    .text-gray
+                      = fa_icon '', class: 'icon fa fa-clock-o'
+                      %span 15時間前
+            .main_block__right__oshirase-todo__body__list__link
+              = link_to '' do
+                = image_tag "icon.jpg", size: "48x48", alt: "icon"
+                .main_block__right__oshirase-todo__body__list__link__body
+                  .main_block__right__oshirase-todo__body__list__link__body__text
+                    = "事務局からのメッセージ"
+                    .text-gray
+                      = fa_icon '', class: 'icon fa fa-clock-o'
+                      %span 21時間前
+          .main_block__right__oshirase-todo__body__ichiran
+            = link_to '' do 
+              = "一覧を見る"
+      .main_block__right__item
+        .main_block__right__item__head
+          ="購入した商品"
+        .main_block__right__item__tab
+          %li
+            = link_to '' ,class: 'bk-black'do
+              = "取引中"
+          %li
+            = link_to '' ,class: 'select'do
+              = "過去の取引"
+          .main_block__right__item__tab__list
+            .main_block__right__item__tab__list__link
+              = link_to '' do
+                = image_tag "icon.jpg", size: "48x48", alt: "icon"
+                .main_block__right__item__tab__list__link__body
+                  .main_block__right__item__tab__list__link__body__text
+                    = "「アニメグッズ詰め合わせセット」を購入しました。取引が完了しました。"
+                  .main_block__right__item__tab__list__link__body__status
+                    = "取引完了"
+            .main_block__right__item__tab__list__link
+              = link_to '' do
+                = image_tag "icon.jpg", size: "48x48", alt: "icon"
+                .main_block__right__item__tab__list__link__body
+                  .main_block__right__item__tab__list__link__body__text
+                    = "「映画グッズ詰め合わせセット」を購入しました。取引が完了しました。"
+                  .main_block__right__item__tab__list__link__body__status
+                    = "取引完了"
+            .main_block__right__item__tab__list__link
+              = link_to '' do
+                = image_tag "icon.jpg", size: "48x48", alt: "icon"
+                .main_block__right__item__tab__list__link__body
+                  .main_block__right__item__tab__list__link__body__text
+                    = "「音楽グッズ詰め合わせセット」を購入しました。取引が完了しました。"
+                  .main_block__right__item__tab__list__link__body__status
+                    = "取引完了"
+        .main_block__right__item__tab__ichiran
+          = link_to '' do 
+            = "一覧を見る"
