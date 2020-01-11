@@ -4,4 +4,4 @@ Rails.application.routes.draw do
   resources :mypage, only: [:index, :edit, :identification] do
     resources :identification, only: [:index]
   end
-  end
+end
