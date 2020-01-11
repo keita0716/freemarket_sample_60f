@@ -1,0 +1,53 @@
+.header
+  = render 'tops/header'
+.main.clearfix
+  .main_block
+    = render 'shared/mypage_left_bar.haml'
+    .main_block__right__all
+      .main_block__right
+        .main_block__right__idenhead
+          = "本人情報の登録"
+        .main_block__right__idenbody
+          %p お客さまの本人情報をご登録ください。
+          登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+          %p.text-right 
+            = link_to '' do
+              本人確認書類のアップロードについて
+              = fa_icon '', class: 'icon fa fa-chevron-right text-blue'
+          .main_block__right__idenbody__form
+            %label お名前
+            %p 鈴木啓太
+          .main_block__right__idenbody__form
+            %label お名前カナ
+            %p スズキケイタ
+          .main_block__right__idenbody__form
+            %label 生年月日
+            %p 1989/07/16
+          .main_block__right__idenbody__form
+            %label 郵便番号
+            %span.indenti-background-gray 任意
+            %input{type:"text",placeholder:"例）1234567"}
+          .main_block__right__idenbody__form
+            %label 都道府県
+            %span.indenti-background-gray 任意
+            .identi-relative
+              %select
+              = fa_icon '', class: 'fa-chevron-down icon-left'
+          .main_block__right__idenbody__form
+            %label 市区町村
+            %span.indenti-background-gray 任意
+            %input{type:"text",placeholder:"例) 横浜市緑区"}
+          .main_block__right__idenbody__form
+            %label 番地
+            %span.indenti-background-gray 任意
+            %input{type:"text",placeholder:"例) 青山1−1−1"}
+          .main_block__right__idenbody__form
+            %label 建物名
+            %span.indenti-background-gray 任意
+            %input{type:"text",placeholder:"例) 柳ビル103"}
+          %button
+            ="登録する"
+          %p.text-right 
+            = link_to '' do
+              本人情報の登録について
+              = fa_icon '', class: 'icon fa fa-chevron-right text-blue'
