@@ -39,7 +39,6 @@ Things you may want to cover:
 |birth_month|date|null: false|
 |birth_day|date|null: false|
 |user_image_id|integer|null: false, foreign_key: true|
-|authentication_phonenumber_id|integer|null: false, foreign_key: true|
 |profile_id|integer|null: false, foreign_key: true|
 |credit_card_id|integer|null: false, foreign_key: true|
 |negotiation_comment_id|integer|null: false|
