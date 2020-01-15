@@ -1,0 +1,21 @@
+%h2 クレジットカード情報登録
+= form_for (@credit_card) do |f|
+  = render "devise/shared/error_messages", resource: @credit_card
+  .field
+    = f.label :card_number
+    %br/
+    = f.number_field :card_number
+  .field
+    = f.label :card_limit_month
+    %br/
+    = f.number_field :card_limit_month
+  .field
+    = f.label :card_limit_year
+    %br/
+    = f.number_field :card_limit_year
+  .field
+    = f.label :security_number
+    %br/
+    = f.number_field :security_number
+  .actions
+    = f.submit "Next"
