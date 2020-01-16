@@ -1,7 +1,7 @@
 .main_block__left
   .main_block__left__menu
     .main_block__left__menu__list
-      = link_to '', class: 'main_block__left__menu__list__item bk-black' do
+      = link_to mypage_index_path, class: 'main_block__left__menu__list__item bk-black' do
         = "マイページ"
         = fa_icon '', class: 'icon fa fa-chevron-right'
       = link_to '', class: 'main_block__left__menu__list__item' do
@@ -59,7 +59,7 @@
       = link_to '', class: 'main_block__left__menu__list__item' do
         = "発送元・お届け先住所変更"
         = fa_icon '', class: 'icon fa fa-chevron-right'
-      = link_to '', class: 'main_block__left__menu__list__item' do
+      = link_to mypage_card_index_path(0), class: 'main_block__left__menu__list__item' do
         = "支払い方法"
         = fa_icon '', class: 'icon fa fa-chevron-right'
       = link_to '', class: 'main_block__left__menu__list__item' do
