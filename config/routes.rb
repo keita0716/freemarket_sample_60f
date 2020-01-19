@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   root 'tops#index'
   resources :mypage, only: [:index, :edit] do
     resources :identification, only: [:index]
+    resources :card, only: [:index]
   end
 end

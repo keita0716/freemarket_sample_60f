@@ -1,0 +1,27 @@
+.header
+  = render 'tops/header'
+.main.clearfix
+  .main_block
+    = render 'shared/mypage_left_bar.haml'
+    .main_block__right__all
+      .main_block__right
+        .main_block__right__card
+          .main_block__right__card__head
+            = "支払い方法"
+          .main_block__right__card__body
+            .main_block__right__card__body__title
+              = "クレジットカード一覧"
+            .main_block__right__card__body__list
+              .main_block__right__card__body__list__single
+                .main_block__right__card__body__list__single__img
+                  = image_tag "visa.svg", size: "49x15", alt: "icon"
+                .main_block__right__card__body__list__single__info
+                  = "************8605"
+                .main_block__right__card__body__list__single__info
+                  = "12/22"
+                %button.main_block__right__card__body__list__single__button
+                  = "削除する"
+            .main_block__right__card__body__regist
+              = link_to '' do
+                支払い方法について
+                = fa_icon '', class: 'icon fa fa-chevron-right text-blue'
