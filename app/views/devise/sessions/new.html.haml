@@ -14,4 +14,11 @@
       = f.label :remember_me
   .actions
     = f.submit "Log in"
+  .devise-main__session__omniauth
+    = link_to user_facebook_omniauth_authorize_path, class: 'devise-main__session__omniauth__facebook' do
+      %i.fab.fa-facebook
+      Facebookでログイン
+    = link_to user_google_oauth2_omniauth_authorize_path, class: 'devise-main__session__omniauth__google' do
+      %i.fab.fa-google-plus-g
+      Googleでログイン
 = render "devise/shared/links"

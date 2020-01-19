@@ -22,8 +22,6 @@
           ブランドから探す
   %ul.right_contents
     - if user_signed_in?   
-      %li.right_contents__logout--button
-        = link_to "ログアウト", destroy_user_session_path, method: :delete    
       %li.right_contents__like
         = link_to '*' do
           .right_contents__like--icon
@@ -52,6 +50,6 @@
         = link_to "ログアウト", destroy_user_session_path, method: :delete    
     - else
       %li.right_contents__registration-button
-        = link_to "新規会員登録", new_user_registration_path, class:"btn-red"
+        = link_to "新規会員登録", start_user_registration_path, class:"btn-red"
       %li.right_contents__login-button
         = link_to 'ログイン',  new_user_session_path, class:"blue-btn"
