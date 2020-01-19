@@ -22,8 +22,6 @@
           ブランドから探す
   %ul.right_contents
     - if user_signed_in?   
-      %li.right_contents__logout--button
-        = link_to "ログアウト", destroy_user_session_path, method: :delete    
       %li.right_contents__like
         = link_to '*' do
           .right_contents__like--icon
