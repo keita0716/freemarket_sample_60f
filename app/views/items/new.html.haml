@@ -1,10 +1,143 @@
 .top
-  = link_to root_path do
-    = image_tag 'fmarket_logo_red.svg'
-.contents
+  .top__logo
+    = link_to root_path do
+      = image_tag 'fmarket_logo_red.svg'
+%form.contents{action: "*", id: "sell"}
   .top_content
-  .item_overview
-  .item_details
-  .item_delivery
-  .item_price
-  .bottom_content
+    商品の情報を入力
+  .image
+    .image__upper
+      .image__upper_text
+        商品の画像
+      .mast
+        必須
+    .image__lower
+      .image__lower_text
+        最大10枚までアップロードできます
+      %input.input__lower_image{type: "file"}
+        .input__lower_image--drop{dropzone: "copy"}  
+          .input__lower_image--drop_text
+            ドラッグアンドドロップ
+            %br またはクリックしてファイルをアップロード
+  .overview
+    .overview__item_name
+      .overview__item_name--text
+        .overview__item_name--text_area
+          商品名
+        .mast
+          必須
+      %input.overview__item_name--input{type: "text", placeholder: "商品名（必須40文字まで）"}
+    .overview__item_description
+      .overview__item_description--text
+        .overview__item_description--text_area
+          商品の説明
+        .mast
+          必須
+      %textarea.overview__item_description--input{placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
+  .details
+    .details__left
+      商品の詳細
+    .details__right
+      .details__right--category
+        .details__right--category_text
+          .details__right--category_text_area
+            カテゴリー
+          .mast
+            必須
+        /プルダウン
+      .details__right--condition
+        .details__right--condition_text
+          .details__right--condition_text_area
+            商品の状態
+          .mast
+            必須
+        /プルダウン
+  .delivery
+    .delivery__left
+      .delivery__left--text
+        配送料について
+      .delivery__left--icon
+        =link_to '*' do
+          = fa_icon 'question-circle'
+    .delivery__right
+      .delivery__right--payment
+        .delivery__right--payment_text
+          .delivery__right--payment_text_area
+            配送料の負担
+          .mast
+            必須
+        /プルダウン
+      .delivery__right--country
+        .delivery__right--country_text
+          .delivery__right--country_text_area
+            発送元の地域
+          .mast
+            必須
+        /プルダウン
+      .delivery__right--days
+        .delivery__right--days_text
+          .delivery__right--days_text_area
+            発送元の地域
+          .mast
+            必須
+        /プルダウン
+  .price
+    .price__left
+      .price__left--text
+        販売価格(300〜9,999,999)
+      .price__left--icon
+        =link_to '*' do
+          = fa_icon 'question-circle'
+    .price__right
+      .price__right--price
+        .price__right--price_text
+          .price__right--price_text_area
+            価格
+          .mast
+            必須
+        .price__right--price_form
+          .price__right--price_form_yen
+            ¥
+          %input.price__right--price_form_input{type: "text", placeholder: "例）300"}
+      .price__right--fee
+        .price__right--fee_text
+          販売手数料(10%)
+        .price__right--fee_calculation
+          /手数料自動計算
+          ●●●
+      .price__right--gain
+        .price__right--gain_text
+          販売利益
+        .price__right--gain_calculation
+          /利益自動計算
+          ●●●
+  .attention
+    .attention__top
+      %a{href: '*'}> 禁止されている出品
+      、
+      %a{href: '*'}> 行為
+      を必ずご確認ください。
+    .attention__middle
+      またブランド品でシリアルナンバー等がある場合はご記載ください。
+      %a{href: '*'}> 偽ブランドの販売
+      は犯罪であり処罰される可能性があります。
+    .attention__bottom
+      また、出品をもちまして
+      %a{href: '*'}> 加盟店規約
+      に同意したことになります。
+  %button.sell_button{type: "submit", value: "出品する"}
+.back_button
+  = link_to "*" do
+    もどる
+
+.footer
+  %ul.footer__list
+    %li.footer__list--left
+      プライバシーポリシー
+    %li.footer__list--center
+      メルカリ利用規約
+    %li.footer__list--right
+      特定商取引に関する表記
+  .footer__logo
+    = link_to root_path do
+      = image_tag 'logo_gray.svg'
