@@ -133,11 +133,14 @@
 .footer
   %ul.footer__list
     %li.footer__list--left
-      プライバシーポリシー
+      = link_to '*' do
+        プライバシーポリシー
     %li.footer__list--center
-      メルカリ利用規約
+      = link_to '*' do
+        メルカリ利用規約
     %li.footer__list--right
-      特定商取引に関する表記
+      = link_to '*' do
+        特定商取引に関する表記
   .footer__logo
     = link_to root_path do
       = image_tag 'logo_gray.svg'
