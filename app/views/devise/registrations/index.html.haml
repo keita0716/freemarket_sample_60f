@@ -1,3 +1,23 @@
-= link_to 'メールアドレスで登録', new_user_registration_path
-= link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post
-= link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post
+.registration__login__container 
+  .signup__simple__header
+    .signup__simple__header__logo
+      = link_to root_path do
+        = image_tag 'fmarket_logo_red.svg', alt: 'logo', class: 'devise-header__link__image', height: '49', width: '185'
+  %main.signup__main
+    .signup__box
+      %h2.signup__box__head 新規会員登録
+      .signup
+        .signup__email
+          = link_to new_user_registration_path, class: "btn-default btn-mail" do
+            メールアドレスで登録する
+            %i.far.fa-envelope
+        .signup__social
+          = link_to user_facebook_omniauth_authorize_path, method: :post do
+            %button#facebook-login.btn-default.btn__sns__facebook
+              Facebookで登録する
+              %i.fab.fa-facebook
+          = link_to user_google_oauth2_omniauth_authorize_path, method: :post do
+            %button#google-login.btn-default.btn__sns__google 
+              %i.fab.fa-google
+              Googleで登録する
+  = render "devise/shared/registration_login_footer" 
