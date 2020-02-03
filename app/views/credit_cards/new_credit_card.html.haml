@@ -1,21 +1,64 @@
-%h2 クレジットカード情報登録
-= form_for (@credit_card) do |f|
-  = render "devise/shared/error_messages", resource: @credit_card
-  .field
-    = f.label :card_number
-    %br/
-    = f.number_field :card_number
-  .field
-    = f.label :card_limit_month
-    %br/
-    = f.number_field :card_limit_month
-  .field
-    = f.label :card_limit_year
-    %br/
-    = f.number_field :card_limit_year
-  .field
-    = f.label :security_number
-    %br/
-    = f.number_field :security_number
-  .actions
-    = f.submit "Next"
+.signup__wrapper
+  .single__header
+    %h1.single__header__logo
+      = link_to root_path do 
+        = image_tag 'fmarket_logo_red.svg', alt: 'logo', class: 'devise-header__link__image', height: '49', width: '185'
+    %nav.progress__payment
+      %ol.clearfix
+        %li.progress__payment__active
+          会員情報
+          .progress__payment__active__status
+        %li.progress__payment__active__phone-number
+          電話番号認証
+          .progress__payment__active__status__phone-number
+        %li.progress__payment__active__address
+          お届け先住所入力
+          .progress__payment__active__status__address
+        %li.progress__payment__active__payment
+          支払い方法
+          .progress__payment__active__status__payment
+        %li.progress__payment__active__complete
+          完了
+          .progress__payment__active__status__complete
+  .registration
+    .registration__main
+      %h2.registration__main__head クレジットカード情報登録
+      = form_for(@credit_card, html: { class: 'registration__main__form'}) do |f|
+        = render "devise/shared/error_messages", resource: @credit_card
+        .field
+          %span.label カード番号
+          %span.required 必須
+          = f.number_field :card_number, class: "input-default",  placeholder: "半角英数のみ",id: "card_number"
+        .field__card__type
+          %ul
+            %li 
+              =image_tag "Visa_Inc._logo.svg", size: "50x30",alt:"visa"
+            %li 
+              =image_tag "mc_vrt_pos.svg", size: "50x30",alt:"master-card"
+            %li 
+              =image_tag "Saison_card_logo.svg", size: "50x30",alt:"saison-card"
+            %li 
+              =image_tag "JCB_logo.svg", size: "50x30",alt:"jcb"
+            %li 
+              =image_tag "Diners_Club_Logo3.svg", size: "55x30",alt:"dinersclub"
+            %li 
+              =image_tag "Discover_Card_logo.svg", size: "55x30",alt:"discover"
+        .field
+          %span.label 有効期限
+          %span.required 必須
+          .field__credit__card__limit
+            = f.select :card_limit_month,[["01"], ["02"], ["03"], ["04"], ["05"], ["06"], ["07"], ["08"], ["09"], ["10"], ["11"], ["12"]], id: "card_limit_month"
+            月
+            = f.select :card_limit_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],id: "card_limit_year"
+            年
+        .field
+          %span.label カード番号
+          %span.required 必須
+          = f.text_field :security_number, class: "security_number",  placeholder: "カード背面4桁もしくは3桁の番号",id:"security_number"
+        .field__seqcode
+          .field__seqcode__text
+            ?
+          %span カード背面の番号とは？
+        .registration__main__actions
+          = f.submit "Next"
+    = render "devise/shared/registration_login_footer"
