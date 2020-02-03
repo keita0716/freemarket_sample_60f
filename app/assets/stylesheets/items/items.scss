@@ -1,0 +1,165 @@
+.color-good{
+  color: #ef5185;
+}
+.color-meh{
+  color: #fba933;
+}
+.color-frown{
+  color: #6ab5d8;
+}
+.shosaimain{
+  background: #fff;
+  margin: 40px auto 0;
+  padding: 24px 40px 40px;
+  width: 620px;
+  
+  &__item{
+    font-size: 24px;
+    text-align: center;
+    overflow-wrap: break-word;
+    line-height: 1.4;
+  }
+  &__iteminfo{
+    margin: 16px 0px 0px;
+    &__image{
+      float: left;
+      min-width: 300px;
+      max-width: 300px;
+      // min-height: 375px;
+      position: relative;
+    }
+    &__table{
+      float: right;
+      max-width: 300px;
+      // height: 420px;
+      margin: 0 auto;
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid #f5f5f5;
+      & table{
+        width: 100%;
+        border-spacing: 2px;
+        border-color: grey;
+        font-size:14px;
+      }
+      & tbody{
+        display: table-row-group;
+        vertical-align: middle;
+        border-color: inherit;
+        width: 100%;
+      }
+      & tr{
+        display: table-row;
+        vertical-align: inherit;
+        border-color: inherit;
+        width: 100%;
+      }
+      & th{
+        width: 39%;
+        text-align: left;
+        font-weight: 400;
+        background: #fafafa;
+        padding: 8px;
+      }
+      & td{
+        padding: 8px;
+        width: 61%;
+        background: #fff;
+      }
+    }
+  }
+  &__pricearea{
+    margin: 24px 0 0;
+    text-align: center;
+    display: block;
+    &__price{
+      margin: 0 16px 0 0;
+      font-size: 50px;
+      font-weight: 600;
+    }
+    &__zekomi{
+      font-size: 10px;
+    }
+    &__soryo{
+      display: inline-block;
+      font-size: 16px;
+    }
+  }
+  &__buybutton{
+    font-size: 24px;
+    line-height: 60px;display: block;
+    margin-top: 16px;
+    background: #ea352d;
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+    transition: all ease-out .3s;
+  }
+  &__honbun{
+    padding: 32px 0 0;
+    line-height: 1.5;
+    font-size: 16px;
+  }
+  &__kabu{
+    margin: 16px 0 0;
+    font-size: 0;
+    &__left{
+      float: left;
+      &__iine{
+        color: #333;
+        border: 1px solid #f5f5f5;
+        background: #f5f5f5;
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 40px;
+        margin: 0 0 0 16px;
+        transition: all ease-out .3s;
+        font-size: 13px;
+      }
+    }
+    &__right{
+      margin: 8px 0 0;
+      float: right;
+      font-size: 13px;
+    }
+  }
+}
+.shosaimessage{
+  width: 700px;
+  margin: 8px auto;
+  &__content{
+    padding: 24px;
+    background: #fff;
+    & p{
+      padding: 8px;
+      font-size: 14px;
+      background: #fff6de;
+    }
+    &__text{
+      margin: 8px 0 0;
+      display: block;
+      width: 97%;
+      max-width: 100%;
+      min-height: 104px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background: #fff;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    &__button{
+      width: 100%;
+      margin: 8px 0 0;
+      font-size: 0;
+      text-align: center;
+      background: #aaa;
+      border: 1px solid #aaa;
+      color: #fff;
+      font-size: 14px;
+      display: block;
+      line-height: 48px;
+      transition: all ease-out .3s;
+      cursor: pointer;
+    }
+  }
+}

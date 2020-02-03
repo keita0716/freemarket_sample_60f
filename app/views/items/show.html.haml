@@ -1,0 +1,84 @@
+.header
+  = render 'tops/header'
+.main.clearfix
+  .shosaimain
+    .shosaimain__item
+      ="ゲーム１２本詰め合わせセット"
+    .shosaimain__iteminfo.clearfix
+      .shosaimain__iteminfo__image
+        = image_tag '45019.png', height: "300", width: "300"
+      .shosaimain__iteminfo__table
+        %table
+          %tbody
+            %tr
+              %th 出品者
+              %td
+                = link_to '' ,class:"text-blue" do 
+                  = "田中"
+                %div
+                  = fa_icon '', class: 'icon fa fa-smile-o color-good'
+                  = 55
+                  = fa_icon '', class: 'icon fa fa-meh-o color-meh'
+                  = 2
+                  = fa_icon '', class: 'icon fa fa-frown-o color-frown'
+                  = 3
+            %tr
+              %th カテゴリー
+              %td
+                = link_to '' ,class:"text-blue" do 
+                  = "ゲーム"
+            %tr
+              %th ブランド
+              %td
+                = link_to '' ,class:"text-blue" do 
+                  = "任天堂"
+            %tr
+              %th 商品の状態
+              %td 目立った傷や汚れなし
+            %tr
+              %th 配送料の負担
+              %td 送料込み(出品者負担)
+            %tr
+              %th 発送の方法
+              %td らくらくメルカリ便
+            %tr
+              %th 配送元地域
+              %td 
+                = link_to '' ,class:"text-blue" do 
+                  = "愛知県"
+            %tr
+              %th 発送日の目安
+              %td 4~7日で発送
+    %div
+    .shosaimain__pricearea
+      .shosaimain__pricearea__price
+        = "¥2,000"
+        %span.shosaimain__pricearea__zekomi
+          = "(税込)" 
+          %span.shosaimain__pricearea__soryo
+            = "送料込み"
+    .shosaimain__buybutton
+      ="購入画面に進む"
+    .shosaimain__honbun
+      %p
+        ="友人からの頂き物です。特に気になる汚れはありません。写真で判断をお願いします。中古品である事を理解の上購入をお願い致します。"
+    .shosaimain__kabu
+      .shosaimain__kabu__left
+        %button.shosaimain__kabu__left__iine
+          = fa_icon '', class: 'icon fa fa-heart-o'
+          = "いいね!"
+          = "0"
+        %button.shosaimain__kabu__left__iine
+          = fa_icon '', class: 'icon fa fa-flag-o'
+          = "不適切な商品の報告"
+      .shosaimain__kabu__right
+        = link_to '' ,class:"text-blue" do 
+          = fa_icon '', class: 'icon fa fa-lock text-blue'
+          = "あんしん・あんぜんへの取り組み"
+  .shosaimessage
+    .shosaimessage__content
+      %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      %textarea.shosaimessage__content__text
+      %button.shosaimessage__content__button
+        = "コメントする"
+  .shosailink

@@ -19,4 +19,5 @@ Rails.application.routes.draw do
     resources :identification, only: [:index]
     resources :card, only: [:index]
   end
+  resources :items, only: [:show]
 end
