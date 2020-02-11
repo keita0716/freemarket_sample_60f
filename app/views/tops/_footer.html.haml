@@ -1,0 +1,91 @@
+.sub__footer
+  .app__text
+    %h2 スマホでかんたんフリマアプリ
+    %p 今すぐ無料ダウンロード！
+    .app__text__figure
+      .app__text__figure__image
+        = image_tag 'logo_red.svg', alt: 'logo', class: 'devise-header__link__image', height: '49', width: '185'
+      %ul
+        %li
+          = link_to "#" do
+            = image_tag'download-on-the-app-store-apple.svg', width: "130px"
+        %li
+          = link_to "#" do
+            = image_tag'Google_Play_Store_badge_EN.svg', width: "130px"
+
+.footer
+  .footer__content
+    .footer__top
+      .footer__top__content
+        %h2 フリマについて
+        %ul
+          %li
+            = link_to "会社概要（運営会社）", "#"
+          %li
+            = link_to "採用情報", "#"
+          %li
+            = link_to "プレスリリース", "#"
+          %li
+            = link_to "公式ブログ", "#"
+          %li
+            = link_to "フリマロゴ利用ガイドライン", "#"
+          .footer__top__content__social
+            %li
+              = link_to "#" do
+                = fa_icon 'twitter'
+            %li
+              = link_to "#" do
+                = fa_icon 'facebook-square'
+      .footer__top__content
+        %h2 ヘルプ＆ガイド
+        %ul
+          %li
+            = link_to "フリマガイド", "#"
+          %li
+            = link_to "らくらくフリマ便", "#"
+          %li
+            = link_to "ゆうゆうフリマ便", "#"
+          %li
+            = link_to "大型フリマ便", "#"
+          %li
+            = link_to "車体取引ガイド", "#"
+          %li
+            = link_to "フリマあんしん・あんぜん宣言！", "#"
+          %li
+            = link_to "偽ブランド品撲滅への取り組み", "#"
+          %li
+            = link_to "フリマボックス", "#"
+      .footer__top__content
+        %h2 プライバシーと利用規約
+        .footer__top__content__divide
+          .footer__top__content__divide__left
+            %ul
+              %li
+                = link_to "プライバシーポリシー", "#"
+              %li
+                = link_to "フリマ利用規約", "#"
+              %li
+                = link_to "あんしんスマホサポート制度に関する利用特約", "#"
+              %li
+                = link_to "コンプライアンスポリシー", "#"
+          .footer__top__content__divide__right
+            %ul
+              %li
+                = link_to "個人データの安全管理に係る基本方針", "#"
+              %li
+                = link_to "特定商取引に関する表記", "#"
+              %li
+                = link_to "資金決済法に基づく表示", "#"
+              %li
+                = link_to "法令順守と犯罪抑止のために", "#"
+      .footer__top__content
+        %h2 国
+        %ul
+          %li
+            = link_to "日本", "#"
+          %li
+            = link_to "United States", "#"
+    .footer__bottom
+      = link_to root_path do
+        = image_tag 'logo_red.svg',  width: '180', height: '49'
+      %span © 2020 Fmarket
