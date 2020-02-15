@@ -28,4 +28,4 @@
 # 画像ファイルをコミット対象から外す
 public/uploads/*
 # secrets.ymlをコミット対象から外す
-config/secrets.yml
+/config/secrets.yml

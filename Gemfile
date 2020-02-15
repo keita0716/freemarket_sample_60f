@@ -79,6 +79,10 @@ gem 'font-awesome-sass', '~> 5.4.1'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+<<<<<<< HEAD
 gem "omniauth-rails_csrf_protection"
 gem 'fog-aws'
 gem 'carrierwave'
+=======
+gem "omniauth-rails_csrf_protection"
+>>>>>>> parent of 077317f... SNSの設定
