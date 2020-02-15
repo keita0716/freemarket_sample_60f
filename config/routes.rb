@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   end
   get 'credit_cards', to: 'credit_cards#new_credit_card'
   post 'credit_cards', to: 'credit_cards#create_credit_card'
+  get 'logout', to: 'mypage#logout'
+  post 'logout', to: 'mypage#logout'
+  get 'purchase_confirmation', to: 'mypage#purchase_confirmation'
+  post 'purchase_confirmation', to: 'mypage#purchase_confirmation'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'tops#index'
   resources :mypage, only: [:index, :edit] do

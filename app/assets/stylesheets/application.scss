@@ -1,8 +1,15 @@
 @import "index";
 @import "header";
+@import "footer";
 @import "reset";
+@import "sell_button";
+@import "font-awesome";
+@import "mypage/purchase_confirmation.scss";
 @import "mypage/mypage.scss";
 @import "mypage/edit.scss";
+@import "mypage/logout.scss";
+@import "modules/devise";
+@import "modules/login";
 @import "modules/mypages_left_bar.scss";
 @import "identification/identification.scss";
 @import "card/card.scss";

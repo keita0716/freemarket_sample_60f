@@ -1,0 +1,99 @@
+.sub__footer {
+  height: 260px;
+  background: url("free_photo2.jpg");
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.app__text {
+  padding: 30px;
+  h2 {
+    color: #FFF;
+    font-size: 24px;
+    text-align: left;
+    font-weight: bold;
+  }
+  p {
+    color: #FFF;
+    font-size: 36px;
+    text-align: left;
+  }
+  &__figure {
+    display: flex;
+    padding: 24px;
+    ul {
+      display: flex;
+      li {
+        padding: 10px;
+      }
+    }
+  }
+}
+
+.footer {
+  background: #222;
+  height: 400px;
+  h2 {
+    color: #fff;
+    font-size: 16px;
+    text-align: left;
+  }
+  a {
+    color: #BCBCBC;
+    font-size: 12px;
+  }
+  i {
+    color: #fff;
+    font-size: 3em;
+  }
+  span {
+    color: white;
+  }
+}
+
+.footer__content {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.footer__top {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  &__content {
+    margin: 0 30px;
+    text-align: left;
+    li {
+      margin-top: 12px;
+    }
+    &__social {
+      display: flex;
+      li {
+        padding-right: 20px;
+      }
+    }
+    &__divide {
+      display: flex;
+      &__left {
+        width: 50%;
+        margin-right: 20px;
+      }
+    }
+  }
+}
+
+.footer__bottom {
+  display: flex;
+  a {
+    width: 50%;
+  }
+  span {
+    line-height: 33px;
+    font-size: 12px;
+  }
+}
