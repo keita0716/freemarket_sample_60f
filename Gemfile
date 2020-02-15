@@ -75,8 +75,7 @@ group :production do
   gem 'unicorn', '5.4.1'
 end
 gem 'haml-rails'
-gem "font-awesome-rails"
-gem 'font-awesome-sass'
+gem 'font-awesome-sass', '~> 5.4.1'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
