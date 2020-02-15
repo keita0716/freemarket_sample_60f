@@ -2,194 +2,138 @@
   .top__logo
     = link_to root_path do
       = image_tag 'fmarket_logo_red.svg'
-%form.contents{action: "*", id: "sell"}
-  .top_content
-    商品の情報を入力
-  .image
-    .image__upper
-      .image__upper_text
-        商品の画像
-      .mast
-        必須
-    .image__lower
-      .image__lower_text
-        最大10枚までアップロードできます
-      %input.input__lower_image{type: "file"}
-        .input__lower_image--drop{dropzone: "copy"}  
-          .input__lower_image--drop_text
+.exhibition
+  = form_for @item, html: { class: 'exhibition_form' } do |f|
+    .top_content
+      商品の情報を入力
+    .image
+      .image__upper
+        .image__upper_text
+          出品画像
+        .mast
+          必須
+      .image__lower
+        .image__lower--text
+          最大10枚までアップロードできます
+        /後ほど要修正
+        .image__lower--image
+          = f.file_field :item_image, class: "image__lower--image_drop" 
+          .image__lower--image_text
             ドラッグアンドドロップ
             %br またはクリックしてファイルをアップロード
-  .overview
-    .overview__item_name
-      .overview__item_name--text
-        .overview__item_name--text_area
-          商品名
-        .mast
-          必須
-      %input.overview__item_name--input{type: "text", placeholder: "商品名（必須40文字まで）"}
-    .overview__item_description
-      .overview__item_description--text
-        .overview__item_description--text_area
-          商品の説明
-        .mast
-          必須
-      %textarea.overview__item_description--input{placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
-  .details
-    .details__left
-      商品の詳細
-    .details__right
-      .details__right--category
-        .details__right--category_text
-          .details__right--category_text_area
-            カテゴリー
+    .overview
+      .overview__item_name
+        .overview__item_name--text
+          .overview__item_name--text_area
+            商品名
           .mast
             必須
-        .details__right--category_pulldown
-          %select{name: "*"} 
-            /上記'*'にはインスタンス変数が入ることになるかと思う
-            /下記'*'には"カテゴリー_id()"が入ることになるかと思う
-            %option{value: ""} ---
-            %option{value: "*"} レディース
-            %option{value: "*"} メンズ
-            %option{value: "*"} ベビー・キッズ
-            %option{value: "*"} インテリア・住まい・小物
-            %option{value: "*"} 本・音楽・ゲーム
-            %option{value: "*"} おもちゃ・ホビー・グッズ
-            %option{value: "*"} コスメ・香水・美容
-            %option{value: "*"} 家電・スマホ・カメラ
-            %option{value: "*"} スポーツ・レジャー
-            %option{value: "*"} ハンドメイド
-            %option{value: "*"} チケット
-            %option{value: "*"} 自動車・オートバイ
-            %option{value: "*"} その他
-            .details__right--category_pulldown_icon
-              =fa_icon 'angle-down'
-      .details__right--condition
-        .details__right--condition_text
-          .details__right--condition_text_area
-            商品の状態
+        = f.text_field :name, class: "overview__item_name--input", placeholder: "商品名（必須40文字まで）"
+      .overview__item_description
+        .overview__item_description--text
+          .overview__item_description--text_area
+            商品の説明
           .mast
             必須
-        .details__right--condition_pulldown
-          %select{name: "*"} 
-            /上記'*'にはインスタンス変数が入ることになるかと思う
-            /下記'*'には"商品の状態_id()"が入ることになるかと思う
-            %option{value: ""} ---
-            %option{value: "*"} 新品・未使用
-            %option{value: "*"} 未使用に近い
-            %option{value: "*"} 目立った傷や汚れなし
-            %option{value: "*"} やや傷や汚れあり
-            %option{value: "*"} 傷や汚れあり
-            %option{value: "*"} 全体的に状態が悪い
-            .details__right--condition_pulldown_icon
-              =fa_icon 'angle-down'
-  .delivery
-    .delivery__left
-      .delivery__left--text
-        配送料について
-      .delivery__left--icon
-        =link_to '*' do
-          = fa_icon 'question-circle'
-    .delivery__right
-      .delivery__right--payment
-        .delivery__right--payment_text
-          .delivery__right--payment_text_area
-            配送料の負担
-          .mast
-            必須
-        .delivery__right--payment_pulldown
-          %select{name: "*"} 
-            /上記'*'にはインスタンス変数が入ることになるかと思う
-            /下記'*'には"配送料の負担_id()"が入ることになるかと思う
-            %option{value: ""} ---
-            %option{value: "*"} 送料込み(出品者負担)
-            %option{value: "*"} 着払い(購入者負担)
-            .delivery__right--payment_pulldown_icon
-              =fa_icon 'angle-down'
-      .delivery__right--country
-        .delivery__right--country_text
-          .delivery__right--country_text_area
-            発送元の地域
-          .mast
-            必須
-        .delivery__right--country_pulldown
-          /プルダウン
-      .delivery__right--days
-        .delivery__right--days_text
-          .delivery__right--days_text_area
-            発送元の地域
-          .mast
-            必須
-        .delivery__right--days_pulldown
-          %select{name: "*"} 
-            /上記'*'にはインスタンス変数が入ることになるかと思う
-            /下記'*'には"配送までの日数_id()"が入ることになるかと思う
-            %option{value: ""} ---
-            %option{value: "*"} 1~2日で発送
-            %option{value: "*"} 2~3日で発送
-            %option{value: "*"} 4~7日で発送
-            .delivery__right--days_pulldown_icon
-              =fa_icon 'angle-down'
-  .price
-    .price__left
-      .price__left--text
-        販売価格(300〜9,999,999)
-      .price__left--icon
-        =link_to '*' do
-          = fa_icon 'question-circle'
-    .price__right
-      .price__right--price
-        .price__right--price_text
-          .price__right--price_text_area
-            価格
-          .mast
-            必須
-        .price__right--price_form
-          .price__right--price_form_yen
-            ¥
-          %input.price__right--price_form_input{type: "text", placeholder: "例）300"}
-      .price__right--fee
-        .price__right--fee_text
-          販売手数料(10%)
-        .price__right--fee_calculation
-          /手数料自動計算
-          -
-      .price__right--gain
-        .price__right--gain_text
-          販売利益
-        .price__right--gain_calculation
-          /利益自動計算
-          -
-  .attention
-    .attention__top
-      %a{href: '*'}> 禁止されている出品
-      、
-      %a{href: '*'}> 行為
-      を必ずご確認ください。
-    .attention__middle
-      またブランド品でシリアルナンバー等がある場合はご記載ください。
-      %a{href: '*'}> 偽ブランドの販売
-      は犯罪であり処罰される可能性があります。
-    .attention__bottom
-      また、出品をもちまして
-      %a{href: '*'}> 加盟店規約
-      に同意したことになります。
-  %button.sell_button{type: "submit", value: "出品する"}
-.back_button
-  = link_to "*" do
-    もどる
-
-.footer
-  %ul.footer__list
-    %li.footer__list--left
-      = link_to '*' do
-        プライバシーポリシー
-    %li.footer__list--center
-      = link_to '*' do
-        メルカリ利用規約
-    %li.footer__list--right
-      = link_to '*' do
-        特定商取引に関する表記
-  .footer__logo
-    = link_to root_path do
-      = image_tag 'logo_gray.svg'
+        = f.text_area :description, class: "overview__item_description--input", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+    .details
+      .details__left
+        商品の詳細
+      .details__right
+        .details__right--category
+          .details__right--category_text
+            .details__right--category_text_area
+              カテゴリー
+            .mast
+              必須
+          = f.select :category_id, [["レディース",1],["メンズ",2],["ベビー・キッズ",3],["インテリア・住まい・小物",4],["本・音楽・ゲーム",5],["おもちゃ・ホビー・グッズ",6],["コスメ・香水・美容",7],["家電・スマホ・カメラ",8],["スポーツ・レジャー",9],["ハンドメイド",10],["チケット",11],["自動車・オートバイ",12],["その他",13]], prompt: "---"
+        .details__right--condition
+          .details__right--condition_text
+            .details__right--condition_text_area
+              商品の状態
+            .mast
+              必須
+          /condition_id となるかも？
+          = f.select :condition, [["新品・未使用"],["未使用に近い"],["目立った傷や汚れなし"],["やや傷や汚れあり"],["傷や汚れあり"],["全体的に状態が悪い"]], prompt: "---"
+    .delivery
+      .delivery__left
+        .delivery__left--text
+          配送料について
+        .delivery__left--icon
+          =link_to '*' do
+            = fa_icon 'question-circle', class: 'question-circle-icon'
+      .delivery__right
+        .delivery__right--payment
+          .delivery__right--payment_text
+            .delivery__right--payment_text_area
+              配送料の負担
+            .mast
+              必須
+          /delivery_charge_id となるかも？
+          = f.select :delivery_charge, [["送料込み(出品者負担)"],["着払い(購入者負担)"]], prompt: "---"
+        .delivery__right--country
+          .delivery__right--country_text
+            .delivery__right--country_text_area
+              発送元の地域
+            .mast
+              必須
+          = f.collection_select :shipping_prefecture_id, ShippingPrefecture.all, :id, :name, prompt: "---" do
+            = fa_icon 'angle-down', class: 'angle-down-icon'
+        .delivery__right--days
+          .delivery__right--days_text
+            .delivery__right--days_text_area
+              発送までの日数
+            .mast
+              必須
+          /shipping_date_id となるかも？
+          = f.select :shipping_date, [["1~2日で発送"],["2~3日で発送"],["4~7日で発送"]], prompt: "---"
+    .price
+      .price__left
+        .price__left--text
+          販売価格(300〜9,999,999)
+        .price__left--icon
+          =link_to '*' do
+            = fa_icon 'question-circle', class: 'question-circle-icon'
+      .price__right
+        .price__right--price
+          .price__right--price_text
+            .price__right--price_text_area
+              価格
+            .mast
+              必須
+          .price__right--price_form
+            .price__right--price_form_yen
+              ¥
+            = f.text_field :price, class: "price__right--price_form_input", placeholder: "例）300"
+        .price__right--fee
+          .price__right--fee_text
+            販売手数料(10%)
+          .price__right--fee_calculation
+            /手数料自動計算
+            = "-"
+        .price__right--gain
+          .price__right--gain_text
+            販売利益
+          .price__right--gain_calculation
+            /利益自動計算
+            = "-"
+    .attention
+      .attention__top
+        %a{href: '*', class: "font-skyblue" }> 禁止されている出品
+        、
+        %a{href: '*', class: "font-skyblue" }> 行為
+        を必ずご確認ください。
+      .attention__middle
+        またブランド品でシリアルナンバー等がある場合はご記載ください。
+        %a{href: '*', class: "font-skyblue" }> 偽ブランドの販売
+        は犯罪であり処罰される可能性があります。
+      .attention__bottom
+        また、出品をもちまして
+        %a{href: '*', class: "font-skyblue" }> 加盟店規約
+        に同意したことになります。
+    = f.submit "出品する", class: "exhibition__submit"
+    .back_button
+      = link_to root_path do
+        %a{class: "font-white"}> もどる
+/マージ後に適用
+/= render "devise/shared/registration_login_footer"

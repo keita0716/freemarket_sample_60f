@@ -135,8 +135,8 @@ Things you may want to cover:
 |delivery_charge|integer|null: false|
 |shipping_date|date|null: false|
 |shipping_method|string|null: false|
-|shipping_prefecture|string|null: false|
-|price|string|null: false|
+|shipping_prefecture_id|integer|null: false|
+|price|integer|null: false|
 |trade_status|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |brand_id|integer|null: false, foreign_key: true|
