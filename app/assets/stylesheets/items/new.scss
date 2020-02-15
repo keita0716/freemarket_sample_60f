@@ -53,13 +53,13 @@ select{
     margin: 0 auto;
   }
 }
-
 .exhibition{
   background-color: whitesmoke;
   .exhibition_form{
     background-color: white;
     width: 700px;
     margin: 0 auto;
+    padding-bottom: 40px;
     .top_content{
       height: 33px;
       font-size: 22px;
@@ -307,8 +307,8 @@ select{
       background-color: gray;
       color: white;
       font-size: 14px;
-      width: 50%;
-      margin: 24px auto 40px;
+      width: 40%;
+      margin: 24px auto 0;
       height: 50px;
       line-height: 50px;
       text-align: center;
