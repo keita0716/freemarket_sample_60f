@@ -56,3 +56,18 @@ $(document).on('turbolinks:load', ()=> {
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });
 });
+
+//価格表示
+$('#sell_price').on('keyup', function(){
+  var price = $(this).val();
+  var sell_fee = Math.floor(price * 0.1)
+  var seller_gain = price - sell_fee
+
+  if (price >= 300 && price <= 9999999) {
+    $('#sell_fee').text('¥' + sell_fee.toLocaleString())
+    $('#seller_gain').text('¥' + seller_gain.toLocaleString())
+  } else {
+    $('#sell_fee').text('-')
+    $('#seller_gain').text('-')
+  }
+})

@@ -118,19 +118,21 @@
           .price__right--price_form
             .price__right--price_form_yen
               ¥
-            = f.text_field :price, class: "price__right--price_form_input", placeholder: "例）300"
+            = f.number_field :price, min:300, max:9999999, class: "price__right--price_form_input", id: "sell-price", placeholder: "例）300", value: ""
         .price__right--fee
           .price__right--fee_text
             販売手数料(10%)
           .price__right--fee_calculation
             /手数料自動計算
-            = "-"
+            .right
+              #sell_fee
         .price__right--gain
           .price__right--gain_text
             販売利益
           .price__right--gain_calculation
             /利益自動計算
-            = "-"
+            .right
+              #seller_gain
     .attention
       .attention__top
         %a{href: '*', class: "font-skyblue" }> 禁止されている出品
