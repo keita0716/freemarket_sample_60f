@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   post 'purchase_confirmation', to: 'mypage#purchase_confirmation'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'tops#index'
-  resources :mypage, only: [:index, :edit] do
+  resources :items, only: [:new, :create]
+  resources :mypage, only: [:index, :create, :edit, :update] do
     resources :identification, only: [:index]
     resources :card, only: [:index]
   end
