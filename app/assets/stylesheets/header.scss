@@ -148,6 +148,18 @@
           float: right;
         }
       }
+      &__logout--button{
+        height: 20px;
+        float: left;
+      }
+      &__registration-button{
+        height: 20px;
+        float: right;
+      }
+      &__login-button{
+        height: 20px;
+        float: right;
+      }
     }
   }
 }

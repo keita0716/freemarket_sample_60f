@@ -31,6 +31,13 @@ Things you may want to cover:
 |nickname|string|null: false, index: true|
 |password|string|null: false|
 |self_introduction|string|---|
+|family_name|string|null: false|
+|first_name|string|null: false|
+|family_kana_name|string|null: false|
+|first_kana_name|string|null: false|
+|birth_year|date|null: false|
+|birth_month|date|null: false|
+|birth_day|date|null: false|
 |user_image_id|integer|null: false, foreign_key: true|
 |profile_id|integer|null: false, foreign_key: true|
 |credit_card_id|integer|null: false, foreign_key: true|
@@ -42,22 +49,20 @@ Things you may want to cover:
 - has_many :items
 - has_many :likes
 - has_many :trading_persons
+- has_many :credit_cards
 - has_one :user_image
-- has_many :credit_card
-- has_one :profile
+- has_one :address
+- has_one :authentication_phonenumber
 
 
-## profilesテーブル
+## addressesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|family_name|string|null: false|
-|first_name|string|null: false|
-|family_kana_name|string|null: false|
-|first_kana_name|string|null: false|
-|birth_year|date|null: false|
-|birth_month|date|null: false|
-|birth_day|date|null: false|
+|address_family_name|string|null: false|
+|address_first_name|string|null: false|
+|address_family_kana_name|string|null: false|
+|address_first_kana_name|string|null: false|
 |postal code|string|null: false|
 |Prefecture|string|null: false|
 |city|string|---|
@@ -80,14 +85,23 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 
+## authentication_phonenumbersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|authentication_phonenumber|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
 
 ## credit_cardsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |card_number|integer|null: false|
-|card_limit_year|date|null: false|
 |card_limit_month|date|null: false|
+|card_limit_year|date|null: false|
 |security_number|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
 

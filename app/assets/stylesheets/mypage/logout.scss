@@ -1,0 +1,20 @@
+.logout__content{
+  float: left;
+  background-color: #ffffff;
+  width: 700px;
+  height: 179px;
+  &__btn{
+    background-color: #ea352d;
+    height: 50px;
+    width: 320px;
+    text-align: center;
+    margin: 60px auto 0;
+    a{   
+      display:block;
+      line-height: 48px;
+      font-size: 14px;
+      color: #fff;     
+    }
+  }
+}
+

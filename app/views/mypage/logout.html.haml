@@ -1,0 +1,9 @@
+.header
+  = render 'tops/header'
+.main.clearfix
+  .main_block
+    = render 'shared/mypage_left_bar.haml'
+  .logout__content
+    .logout__content__btn
+      = link_to "ログアウト", destroy_user_session_path, method: :delete
+
