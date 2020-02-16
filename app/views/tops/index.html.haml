@@ -29,7 +29,7 @@
     %ul.item_list
       /最終的にeachでまとめることになる
       %li.item_list__a
-        = link_to '*' do
+        = link_to item_path(0) do
           .item_list__a--image
             /仮置き
             = image_tag '45019.png', height: "190", width: "180"
@@ -70,3 +70,5 @@
             = image_tag '45019.png', height: "190", width: "180"
           .item_list__f--title
             商品名
+  = render 'tops/sell_button'
+  = render 'tops/footer'

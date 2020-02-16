@@ -1,0 +1,79 @@
+.signup__wrapper
+  .single__header
+    %h1.single__header__logo
+      = link_to root_path do 
+        = image_tag 'fmarket_logo_red.svg', alt: 'logo', class: 'devise-header__link__image', height: '49', width: '185'
+    %nav.progress__address
+      %ol.clearfix
+        %li.progress__address__active
+          会員情報
+          .progress__address__active__status
+        %li.progress__address__active__phone-number
+          電話番号認証
+          .progress__address__active__status__phone-number
+        %li.progress__address__active__address
+          お届け先住所入力
+          .progress__address__active__status__address
+        %li.progress__address__active__payment
+          支払い方法
+          .progress__address__active__status__payment
+        %li.progress__address__active__complete
+          完了
+          .progress__address__active__status__complete
+  .registration
+    .registration__main
+      %h2.registration__main__head 住所情報登録
+      = form_for @address, html: { class: 'registration__main__form'} do |f|
+        = render "devise/shared/error_messages", resource: @address
+        .field
+          %span.label お名前(全角)
+          %span.required 必須
+          %br/
+          = f.text_field :address_family_name, placeholder: "例)山田"
+
+        .field__address__name
+          = f.text_field :address_first_name, placeholder: "例)彩"
+
+        .field
+          %span.label お名前カナ(全角)
+          %span.required 必須
+          %br/
+          = f.text_field :address_family_kana_name, placeholder: "例)ヤマダ"
+
+        .field__address__name
+          = f.text_field :address_first_kana_name, placeholder: "例)アヤ"
+
+        .field
+          %span.label 郵便番号
+          %span.required 必須
+          %br/
+          = f.text_field :zipcode, placeholder: "例)123-4567"
+        .field
+          %span.label 都道府県
+          %span.required 必須
+          %br/
+        .field__prefecture
+          = f.select :prefecture,[["北海道"], ["青森県"], ["岩手県"], ["宮城県"], ["秋田県"], ["山形県"], ["福島県"], ["茨城県"], ["栃木県"], ["群馬県"], ["埼玉県"], ["千葉県"], ["東京都"], ["神奈川県"], ["新潟県"], ["富山県"], ["石川県"], ["福井県"], ["山梨県"], ["長野県"], ["岐阜県"], ["愛知県"], ["三重県"], ["滋賀県"], ["京都府"], ["大阪府"], ["兵庫県"], ["奈良県"], ["和歌山県"], ["鳥取県"], ["島根県"], ["岡山県"], ["広島県"], ["山口県"], ["徳島県"], ["香川県"], ["愛媛県"], ["高知県"], ["福岡県"], ["佐賀県"], ["長崎県"], ["熊本県"], ["大分県"], ["宮崎県"], ["鹿児島県"], ["沖縄県"]], id: "prefecture", placeholder: "例)都道府県"
+        .field
+          %span.label 市区町村
+          %span.required 必須
+          %br/
+          = f.text_field :city, placeholder: "例)横浜市緑区"
+        .field
+          %span.label 番地
+          %span.required 必須
+          %br/
+          = f.text_field :block, placeholder: "例)青山1-1-1"
+        .field
+          %span.label 建物名
+          %span.any 任意
+          %br/
+          = f.text_field :building, placeholder: "例)柳ビル103"
+        .field
+          %span.label 電話
+          %span.any 任意
+          %br/
+          = f.text_field :tel, placeholder: "例)09012345678"
+        .registration__main__actions
+          = f.submit "次へ進む"
+  = render "devise/shared/registration_login_footer"

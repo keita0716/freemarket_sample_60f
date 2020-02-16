@@ -44,6 +44,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem "pry-rails"
 end
 
 group :development do
@@ -77,3 +78,8 @@ gem 'haml-rails'
 gem "font-awesome-rails"
 gem 'font-awesome-sass'
 gem 'active_hash'
+gem 'font-awesome-sass', '~> 5.4.1'
+gem 'devise'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
