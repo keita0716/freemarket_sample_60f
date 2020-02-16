@@ -130,18 +130,18 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|null: false, index: true|
 |description|string|null: false|
-|condition|string|null: false|
 |size|integer|null: false|
-|delivery_charge|integer|null: false|
-|shipping_date|date|null: false|
 |shipping_method|string|null: false|
-|shipping_prefecture_id|integer|null: false|
 |price|integer|null: false|
 |trade_status|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |brand_id|integer|null: false, foreign_key: true|
 |category_id|integer|null: false, foreign_key: true|
 |item_image_id|integer|null: false, foreign_key: true|
+|condition_id|integer|null: false, foreign_key: true|
+|shipping_prefecture_id|integer|null: false|
+|delivery_charge_id|integer|null: false, foreign_key: true|
+|shipping_date_id|integer|null: false, foreign_key: true|
 
 
 ### Association

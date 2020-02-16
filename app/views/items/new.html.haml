@@ -46,15 +46,14 @@
               カテゴリー
             .mast
               必須
-          = f.select :category_id, [["レディース",1],["メンズ",2],["ベビー・キッズ",3],["インテリア・住まい・小物",4],["本・音楽・ゲーム",5],["おもちゃ・ホビー・グッズ",6],["コスメ・香水・美容",7],["家電・スマホ・カメラ",8],["スポーツ・レジャー",9],["ハンドメイド",10],["チケット",11],["自動車・オートバイ",12],["その他",13]], prompt: "---"
+          = f.collection_select :category_id, Category.all, :id, :name, prompt: "---"
         .details__right--condition
           .details__right--condition_text
             .details__right--condition_text_area
               商品の状態
             .mast
               必須
-          /condition_id となるかも？
-          = f.select :condition, [["新品・未使用"],["未使用に近い"],["目立った傷や汚れなし"],["やや傷や汚れあり"],["傷や汚れあり"],["全体的に状態が悪い"]], prompt: "---"
+          = f.collection_select :condition_id, Condition.all, :id, :name, prompt: "---"
     .delivery
       .delivery__left
         .delivery__left--text
@@ -69,24 +68,21 @@
               配送料の負担
             .mast
               必須
-          /delivery_charge_id となるかも？
-          = f.select :delivery_charge, [["送料込み(出品者負担)"],["着払い(購入者負担)"]], prompt: "---"
+          = f.collection_select :delivery_charge_id, DeliveryCharge.all, :id, :name, prompt: "---"
         .delivery__right--country
           .delivery__right--country_text
             .delivery__right--country_text_area
               発送元の地域
             .mast
               必須
-          = f.collection_select :shipping_prefecture_id, ShippingPrefecture.all, :id, :name, prompt: "---" do
-            = fa_icon 'angle-down', class: 'angle-down-icon'
+          = f.collection_select :shipping_prefecture_id, ShippingPrefecture.all, :id, :name, prompt: "---"
         .delivery__right--days
           .delivery__right--days_text
             .delivery__right--days_text_area
               発送までの日数
             .mast
               必須
-          /shipping_date_id となるかも？
-          = f.select :shipping_date, [["1~2日で発送"],["2~3日で発送"],["4~7日で発送"]], prompt: "---"
+          = f.collection_select :shipping_date_id, ShippingDate.all, :id, :name, prompt: "---"
     .price
       .price__left
         .price__left--text
