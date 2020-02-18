@@ -51,7 +51,7 @@
   .items{
     height: 100%;
     margin: auto;
-    padding: 42px 0px 100px;
+    padding: 42px 200px 100px;
     background-color: whitesmoke;
     .top_contents{
       height: 80px;
@@ -82,66 +82,18 @@
         background-color: white;
         &--image{
           height: 190px;
-        }
-        &--title{
-          height: 60px;
-          padding: 10px;
-        }
-      }
-      &__b{
-        height: 250px;
-        width: 180px;
-        background-color: white;
-        &--image{
-          height: 190px;
-        }
-        &--title{
-          height: 60px;
-          padding: 10px;
-        }
-      }
-      &__c{
-        height: 250px;
-        width: 180px;
-        background-color: white;
-        &--image{
-          height: 190px;
-        }
-        &--title{
-          height: 60px;
-          padding: 10px;
-        }
-      }
-      &__d{
-        height: 250px;
-        width: 180px;
-        background-color: white;
-        &--image{
-          height: 190px;
-        }
-        &--title{
-          height: 60px;
-          padding: 10px;
-        }
-      }
-      &__e{
-        height: 250px;
-        width: 180px;
-        background-color: white;
-        &--image{
-          height: 190px;
-        }
-        &--title{
-          height: 60px;
-          padding: 10px;
-        }
-      }
-      &__f{
-        height: 250px;
-        width: 180px;
-        background-color: white;
-        &--image{
-          height: 190px;
+          position: relative;
+          &_price{
+            position: absolute;
+            bottom: 8px;
+            left: 0;
+            height: 27px;
+            padding: 1px 12px 0;
+            font-size: 17px;
+            border-radius: 0 14px 14px 0;
+            background-color: rgba(0, 0, 0, 0.4);
+            color: white;
+          }
         }
         &--title{
           height: 60px;
