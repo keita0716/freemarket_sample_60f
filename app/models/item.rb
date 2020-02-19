@@ -5,4 +5,5 @@ class Item < ApplicationRecord
   belongs_to_active_hash :condition
   belongs_to_active_hash :delivery_charge
   belongs_to_active_hash :shipping_date
+  belongs_to_active_hash :brand
 end

@@ -14,12 +14,37 @@
           = fa_icon 'list'
         .left_contents__category--letter
           カテゴリーから探す
+        .left_contents__category--area
+          - @categorysLeft.each do |f|
+            = link_to '' do
+              .left_contents__category--area--list{data: {left: f.category_left_id}}
+                = f.category_left_name
+        - @categorysLeft.each do |f1|
+          .left_contents__category--area2{id:"category-center-#{f1.category_left_id}"}
+            - @categorysCenter.each do |f2|
+              -if f1.category_left_id == f2.category_left_id
+                = link_to '' do
+                  .left_contents__category--area2--list{data: {center: "#{f2.category_left_id}#{f2.category_center_id}"}}
+                    = f2.category_center_name
+        - @categorysCenter.each do |f2|
+          .left_contents__category--area3{id:"category-right-#{f2.category_left_id}#{f2.category_center_id}"}
+            - @categorysRight.each do |f3|
+              -if f2.category_left_id == f3.category_left_id && f2.category_center_id == f3.category_center_id
+                = link_to '' do
+                  .left_contents__category--area3--list{data: {right: "#{f3.category_left_id}#{f3.category_center_id}#{f3.category_right_id}"}}
+                    = f3.category_right_name
+
     %li.left_contents__brand
-      = link_to '*' do
+      = link_to '' do
         .left_contents__brand--icon
           = fa_icon 'magic'
         .left_contents__brand--letter
           ブランドから探す
+      .left_contents__brand--area
+        - @brands.each do |f|
+          = link_to '' do
+            .left_contents__brand--area--list
+              = f.name
   %ul.right_contents
     - if user_signed_in?   
       %li.right_contents__like
