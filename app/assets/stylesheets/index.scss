@@ -1,6 +1,5 @@
 *{
   text-decoration: none;
-  color: black;
 }
 
 .contents{
@@ -32,14 +31,7 @@
       padding-top: 30px;
       height: 80px;
       width: calc(100% - 800px);
-      &__left{
-        height: 20px;
-        padding: 5px 20px;
-        margin: 0 5px;
-        border-radius: 10px;
-        background-color: whitesmoke;
-      }
-      &__right{
+      &__a{
         height: 20px;
         padding: 5px 20px;
         margin: 0 5px;
@@ -68,7 +60,11 @@
         position: absolute;
         bottom: 20px;
         right: 0;
-        color: aqua;
+        color: #0099e8;
+      }
+      &__right:hover{
+        color: skyblue;
+        text-decoration: underline;
       }
     }
     .item_list{

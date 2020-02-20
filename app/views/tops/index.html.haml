@@ -11,31 +11,34 @@
       .h1
         人気のカテゴリー
     %ul.category_list
-      /最終的にeachでまとめることになる
-      %li.category_list__left
+      / - @categories.each do |category|
+      %li.category_list__a
         = link_to '*' do
-          カテゴリー１
-      %li.category_list__right
-        = link_to '*' do
-          カテゴリー２
-
+          / = category.name
   .items
+    / - @categories.each do |category|
     .top_contents
       .top_contents__left
+        / = category.name
         新着アイテム
       .top_contents__right
         = link_to '*' do
           もっと見る ＞
     %ul.item_list
+      / - @categories_item.each do |category_item|
       - @items.each do |item|
         %li.item_list__a
+          / = link_to item_path(category_item.id) do
           = link_to item_path(item.id) do
             .item_list__a--image
-              / = image_tag item.images.first.url, height: "190", width: "180"
+              / = image_tag category_item.images.first.url, height: "190", width: "180"
               = image_tag '45019.png', height: "190", width: "180"
               .item_list__a--image_price
+                / = "¥ # {category_item.price}"
                 = "¥#{item.price}"
             .item_list__a--title
+              / = category_item.name
               = item.name
+  / ブランドも作る
   = render 'tops/sell_button'
   = render 'tops/footer'
