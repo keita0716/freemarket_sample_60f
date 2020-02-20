@@ -27,6 +27,16 @@
       max-width: 300px;
       position: relative;
     }
+    &__underimage{
+      line-height: 0;
+      background: #fafafa;
+      &__sub{
+        width: 60px;
+        height: 60px;
+        max-height: none;
+        float: left;
+      }
+    }
     &__table{
       float: right;
       max-width: 300px;
@@ -51,6 +61,7 @@
         vertical-align: inherit;
         border-color: inherit;
         width: 100%;
+        height: 45px;
       }
       & th{
         width: 39%;

@@ -6,6 +6,8 @@
 .contents{
   height: 100vh;
   width: 100%;
+  z-index: 0;
+  position: absolute;
   .ad{
     height: 400px;
     background-color: orange;
