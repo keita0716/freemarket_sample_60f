@@ -5,7 +5,7 @@ class TopsController < ApplicationController
 
   def index
     @items = Item.where(trade_status: "出品中").order(id: "DESC").first(10)
-    #@categorys = @items.joins(:category).group("categories.name").order(count_name: "DESC").first(4)
+    #@categories = @item.joins(:category).group("categories.name").order(count_name: "DESC").first(4)
     #@categories_item = @categories.order(id: "DESC").first(10)
     #@brands = @items.joins(:brand).group("brands.name").order(count_name: "DESC").first(4)
     #@brands_item = @brands.order(id: "DESC").first(10)
