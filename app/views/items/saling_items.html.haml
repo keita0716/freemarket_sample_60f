@@ -1,0 +1,17 @@
+- if Item.saling_items.present?
+  - Item.saling_items.each do |item|
+    .item_content__right
+      .item_content__right--name
+        =item.name
+      .item_content__right--description
+        =item.description
+      .item_content__right--price
+        =item.price
+      .item_content__right--price
+        .item_content__right--name
+          出品中
+- else
+  .pmain__bottom
+    = image_tag "", class: "pmain__bottom--img", size: "100x100"
+    .pmain__bottom--text
+      出品中の商品がありません
