@@ -30,11 +30,13 @@
     &__underimage{
       line-height: 0;
       background: #fafafa;
+      display: inline-block;
       &__sub{
         width: 60px;
         height: 60px;
         max-height: none;
         float: left;
+        cursor: pointer;
       }
     }
     &__table{
