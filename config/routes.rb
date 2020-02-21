@@ -32,4 +32,5 @@ Rails.application.routes.draw do
     resources :card, only: [:index]
   end
   resources :items, only: [:show]
+  resources :brands, only: [:index ,:show]
 end

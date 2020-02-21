@@ -3,10 +3,23 @@
 .main.clearfix
   .shosaimain.clearfix
     .shosaimain__item.clearfix
-      ="ゲーム１２本詰め合わせセット"
+      = @item.name
     .shosaimain__iteminfo.clearfix
       .shosaimain__iteminfo__image
         = image_tag '45019.png', height: "300", width: "300"
+        .shosaimain__iteminfo__underimage
+          .shosaimain__iteminfo__underimage__sub
+            = image_tag '45019.png', height: "60", width: "60"
+          .shosaimain__iteminfo__underimage__sub
+            = image_tag '45019.png', height: "60", width: "60"
+          .shosaimain__iteminfo__underimage__sub
+            = image_tag '45019.png', height: "60", width: "60"
+          .shosaimain__iteminfo__underimage__sub
+            = image_tag '45019.png', height: "60", width: "60"
+          .shosaimain__iteminfo__underimage__sub
+            = image_tag '45019.png', height: "60", width: "60"
+          .shosaimain__iteminfo__underimage__sub
+            = image_tag '45019.png', height: "60", width: "60"
       .shosaimain__iteminfo__table
         %table
           %tbody
@@ -14,7 +27,7 @@
               %th 出品者
               %td
                 = link_to '' ,class:"text-blue" do 
-                  = "田中"
+                  = @sellUser.nickname
                 %div
                   = fa_icon '', class: 'icon fa fa-smile-o color-good'
                   = 55
@@ -25,34 +38,47 @@
             %tr
               %th カテゴリー
               %td
-                = link_to '' ,class:"text-blue" do 
-                  = "ゲーム"
+                %div
+                  = link_to '' ,class:"text-blue" do 
+                    = @itemCategory.category_left_name
+                %div
+                  = link_to '' ,class:"text-blue" do
+                    = fa_icon '', class: 'icon fa fa-chevron-right text-blue'
+                    = @itemCategory.category_center_name
+                %div
+                  = link_to '' ,class:"text-blue" do
+                    = fa_icon '', class: 'icon fa fa-chevron-right text-blue'
+                    = @itemCategory.category_right_name
             %tr
               %th ブランド
               %td
                 = link_to '' ,class:"text-blue" do 
-                  = "任天堂"
+                  = @itemBrand.name
             %tr
               %th 商品の状態
-              %td 目立った傷や汚れなし
+              %td 
+                = Condition.find(@item.condition_id).name
             %tr
               %th 配送料の負担
-              %td 送料込み(出品者負担)
+              %td
+                = DeliveryCharge.find(@item.delivery_charge_id).name
             %tr
               %th 発送の方法
-              %td らくらくメルカリ便
+              %td 
+                = @item.shipping_method
             %tr
               %th 配送元地域
               %td 
-                = link_to '' ,class:"text-blue" do 
-                  = "愛知県"
+                = ShippingPrefecture.find(@item.shipping_prefecture_id).name
             %tr
               %th 発送日の目安
-              %td 4~7日で発送
+              %td 
+                = ShippingDate.find(@item.shipping_date_id).name
     %div
     .shosaimain__pricearea
       .shosaimain__pricearea__price
-        = "¥2,000"
+        = '¥'
+        = @item.price.to_s(:delimited)
         %span.shosaimain__pricearea__zekomi
           = "(税込)" 
           %span.shosaimain__pricearea__soryo
@@ -60,11 +86,7 @@
     .shosaimain__buybutton
       ="購入画面に進む"
     .shosaimain__honbun
-      %p 友人からの頂き物です。特に気になる汚れはありません。
-      %p
-        =""
-      %p 写真で判断をお願いします。
-      %p 中古品である事を理解の上購入をお願い致します。
+      = @item.description
     .shosaimain__kabu
       .shosaimain__kabu__left
         %button.shosaimain__kabu__left__line
