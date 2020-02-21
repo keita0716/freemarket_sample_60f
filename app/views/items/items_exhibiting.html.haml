@@ -1,0 +1,21 @@
+- if @user.saling_items.present?
+  - @user.saling_items.each do |item|
+      .item_content__image
+        = image_tag item.item_images[0].image.to_s,size:"58x48"
+      .item_content__right
+        .item_content__right--name
+          =item.name
+        .item_content__right__good
+          .item_content__right__good--goods
+            = icon("far","heart")
+            0
+          .item_content__right__good--comment
+            = icon("far","comment-alt")
+            0
+          .item_content__right__good--exhibition
+            出品中
+- else
+  .pmain__bottom
+    = image_tag "", class: "pmain__bottom--img", size: "100x100"
+    .pmain__bottom--text
+      出品中の商品がありません

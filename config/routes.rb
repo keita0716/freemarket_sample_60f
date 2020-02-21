@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   post 'logout', to: 'mypage#logout'
   get 'purchase_confirmation', to: 'mypage#purchase_confirmation'
   post 'purchase_confirmation', to: 'mypage#purchase_confirmation'
+  get 'items_exhibiting', to: 'items#items_exhibiting'
+  post 'items_exhibiting', to: 'items#items_exhibiting'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'tops#index'
   resources :items, only: [:new, :create]
