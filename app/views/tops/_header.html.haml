@@ -47,17 +47,18 @@
           .right_contents__mypage--letter
             マイページ   
       %li.right_contents__mypage
-        = link_to 'purchase_confirmation' do
-          .right_contents__mypage--icon
-            = fa_icon 'user'
+        = link_to 'saling_items' do
           .right_contents__mypage--letter
-            商品購入確認  
+            出品
       %li.right_contents__mypage
-        = link_to 'items_exhibiting' do
-          .right_contents__mypage--icon
-            = fa_icon 'user'
+        = link_to 'trading_items' do
           .right_contents__mypage--letter
-            出品中          
+            取引
+      %li.right_contents__mypage
+        = link_to 'soldout_items' do
+          .right_contents__mypage--letter
+            停止
+           
     - else
       %li.right_contents__registration-button
         = link_to "新規会員登録", start_user_registration_path, class:"btn-red"

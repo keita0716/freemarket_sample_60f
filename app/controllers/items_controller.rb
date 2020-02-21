@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :set_item, except: [:index, :new, :create,:items_exhibiting,:items_transaction,:items_soldout]
-  before_action :set_current_user_items,only:[:items_transaction,:items_exhibiting,:items_soldout]
-  before_action :set_user,only:[:items_transaction,:items_exhibiting,:items_soldout]
+  before_action :set_item, except: [:index, :new, :create,:saling_items,:trading_items,:soldout_items,:buyer_maker]
+  before_action :set_current_user_items,only:[:trading_items,:saling_items,:soldout_items,:buyer_maker]
+  before_action :set_user,only:[:trading_items,:saling_items,:soldout_items,:buyer_maker]
   def index
     @items = Item.includes(:images).order('created_at DESC')
   end
@@ -40,13 +40,13 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
-  def items_exhibiting #出品中
+  def saling_items #出品中
   end
 
-  def items_transaction  #取引中
+  def trading_items  #取引中
   end
 
-  def items_soldout    #売却済み
+  def soldout_items    #売却済み
   end
 
 
