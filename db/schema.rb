@@ -67,6 +67,15 @@ ActiveRecord::Schema.define(version: 2020_02_19_074312) do
     t.index ["user_id"], name: "index_credit_cards_on_user_id"
   end
 
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "src"
+    t.string "image"
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_images_on_item_id"
+  end
+
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -84,6 +93,12 @@ ActiveRecord::Schema.define(version: 2020_02_19_074312) do
     t.integer "condition_id"
     t.integer "delivery_charge_id"
     t.integer "shipping_date_id"
+    t.bigint "seller_id"
+    t.bigint "buyer_id"
+    t.bigint "auction_id"
+    t.index ["auction_id"], name: "index_items_on_auction_id"
+    t.index ["buyer_id"], name: "index_items_on_buyer_id"
+    t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -120,5 +135,9 @@ ActiveRecord::Schema.define(version: 2020_02_19_074312) do
   add_foreign_key "addresses", "users"
   add_foreign_key "authentication_phonenumbers", "users"
   add_foreign_key "credit_cards", "users"
+  add_foreign_key "images", "items"
+  add_foreign_key "items", "users", column: "auction_id"
+  add_foreign_key "items", "users", column: "buyer_id"
+  add_foreign_key "items", "users", column: "seller_id"
   add_foreign_key "sns_credentials", "users"
 end
