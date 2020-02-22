@@ -59,7 +59,7 @@
               カテゴリー
             .mast
               必須
-          = f.collection_select :category_id, Category.all, :id, :name, prompt: "---"
+          = f.collection_select :category_id, Category.group(:category_left_id), :id, :category_left_name, prompt: "---"
         .details__right--condition
           .details__right--condition_text
             .details__right--condition_text_area
