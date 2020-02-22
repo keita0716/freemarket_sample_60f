@@ -10,11 +10,10 @@
       .h1
         人気のカテゴリー
     %ul.category_list
-      / - @categories.each do |category|
-      %li.category_list__a
-        = link_to '*' do
-          カテゴリー１
-          / = category.name
+      - @category.first(4).each do |category|
+        %li.category_list__a
+          = link_to '*' do
+            = Category.find(category.category_id).category_left_name
   .items
     / - @categories.each do |category|
     .top_contents
