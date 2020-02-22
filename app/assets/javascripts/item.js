@@ -1,11 +1,12 @@
 $(function(){
   // 画像用のinputを生成する関数
   const buildFileField = (num)=> {
-    const html = `<div data-index="${num}" class="js-file_group">
-                    <input class="js-file" type="file"
-                    name="item[images_attributes][${num}][src]"
-                    id="item_images_attributes_${num}_src"><br>
-                    <div class="js-remove">削除</div>
+    const html = `<label class="filelabel" id="label-${num}">
+                    <div data-index="${num}" class="js-file_group">
+                      <input class="js-file" type="file"
+                      name="item[images_attributes][${num}][src]"
+                      id="item_images_attributes_${num}_src"><br>
+                    </div>
                   </div>`;
     return html;
   }
@@ -34,8 +35,11 @@ $(function(){
       img.setAttribute('src', blobUrl);
     } else {  // 新規画像追加の処理
       $('#previews').append(buildImg(targetIndex, blobUrl));
+      // 1つ前のアップロードボタンエリアを非表示（display:none）にする
+      $('.filelabel').css('display', 'none');
       // fileIndexの先頭の数字を使ってinputを作る
       $('#image-box').append(buildFileField(fileIndex[0]));
+      $('#image-box').append('<span class="js-remove" data-index="'+fileIndex[0]+'">削除</span>')
       fileIndex.shift();
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
@@ -43,17 +47,24 @@ $(function(){
   });
 
   $('#image-box').on('click', '.js-remove', function() {
-    const targetIndex = $(this).parent().data('index');
+    const targetIndex = $(this).data('index');
     // 該当indexを振られているチェックボックスを取得する
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
     // もしチェックボックスが存在すればチェックを入れる
     if (hiddenCheck) hiddenCheck.prop('checked', true);
 
-    $(this).parent().remove();
+    //remove対象のidを編集
+    var removeGroup = "js-file_group-" + targetIndex
+    console.log(removeGroup)
+    $('#removeGroup').remove();
     $(`img[data-index="${targetIndex}"]`).remove();
 
     // 画像入力欄が0個にならないようにしておく
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
+
+    //自信（削除ボタンを消す
+    $(this).remove()
+
   });
 });
 

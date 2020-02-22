@@ -70,6 +70,24 @@ select{
     .image{
       padding: 40px;
       border-bottom: solid 2px whitesmoke;
+      .js-remove{
+        position: absolute;
+        z-index:2;
+      }
+      .filelabel{
+        cursor:pointer;
+        width: 618px;
+        height: 162px;
+        position: relative;
+        display: inline-block;
+        z-index:1;
+        & input{
+          display:none;
+        }
+      }
+      .previewsClass{
+        position: absolute;
+      }
       &__upper{
         font-size: 16px;
         display: flex;

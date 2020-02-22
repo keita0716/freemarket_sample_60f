@@ -8,7 +8,8 @@
 require "csv"
 
 CSV.foreach('db/category.csv') do |row|
-  Category.create(:category_left_id => row[1], 
+  Category.create(:id => row[0], 
+                  :category_left_id => row[1], 
                   :category_left_name => row[2],
                   :category_center_id => row[3],
                   :category_center_name => row[4],
