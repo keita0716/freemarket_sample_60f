@@ -3,7 +3,9 @@
 
 .contents
   .ad
-    = link_to '*'
+    = link_to '*' do
+      .ad__message
+        キャンペーン実施中！
 
   .categories
     .category
@@ -15,28 +17,29 @@
           = link_to '*' do
             = Category.find(category.category_id).category_left_name
   .items
-    / - @categories.each do |category|
-    .top_contents
-      .top_contents__left
-        / = category.name
-        新着アイテム
-      .top_contents__right
-        = link_to '*' do
-          もっと見る ＞
-    %ul.item_list
-      / - @categories_item.each do |category_item|
-      - @items.first(10).each do |item|
-        %li.item_list__a
-          /= link_to item_path(category_item.id) do
-          = link_to item_path(item.id) do
-            .item_list__a--image
-              = image_tag Image.where(item_id: item.id).first.image, height: "190", width: "180"
-              .item_list__a--image_price
-                / = "¥ # {category_item.price}"
-                = "¥#{item.price}"
-            .item_list__a--title
-              / = category_item.name
-              = item.name
+    - @category.first(4).each do |category|
+      .top_contents
+        .top_contents__left
+          = "#{Category.find(category.category_id).category_left_name}新着アイテム"
+          /新着アイテム
+        .top_contents__right
+          = link_to '*' do
+            もっと見る ＞
+      %ul.item_list
+        - @category_items = @items.where(category_id: category.category_id)
+        - @category_items.first(10).each do |category_item|
+          /- @items.first(10).each do |item|
+          %li.item_list__a
+            = link_to item_path(category_item.id) do
+              /= link_to item_path(item.id) do
+              .item_list__a--image
+                = image_tag Image.where(item_id: category_item.id).first.image, height: "190", width: "180"
+                .item_list__a--image_price
+                  = "¥#{category_item.price}"
+                  /= "¥# {item.price}"
+              .item_list__a--title
+                = category_item.name
+                /= item.name
   / ブランドも作る
   = render 'tops/sell_button'
   = render 'tops/footer'

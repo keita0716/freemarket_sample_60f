@@ -1,6 +1,4 @@
 class TopsController < ApplicationController
-  
-  #以下、コメントアウト部分は後程実装予定分
 
   def index
     @category = Item.group(:category_id).order('count(category_id) DESC').includes(:category)

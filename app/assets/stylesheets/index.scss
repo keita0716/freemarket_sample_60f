@@ -10,6 +10,12 @@
   .ad{
     height: 400px;
     background: url(free_photo.jpg);
+    &__message{
+      font-size: 60px;
+      color: white;
+      text-align: center;
+      padding-top: 170px;
+    }
   }
   .categories{
     height: 160px;
@@ -43,7 +49,6 @@
     }
   }
   .items{
-    height: 100%;
     margin: auto;
     padding: 42px 200px 100px;
     background-color: whitesmoke;
