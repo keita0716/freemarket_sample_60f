@@ -17,10 +17,10 @@
       padding-top: 170px;
     }
   }
-  .categories{
+  .popularities{
     height: 160px;
     background-color: white;
-    .category{
+    .popularity{
       height: 80px;
       position: relative;
       .h1{
@@ -32,7 +32,7 @@
         bottom: 0;
       }
     }
-    .category_list{
+    .popularity_list{
       display: flex;
       font-size: 15px;
       margin: auto;
