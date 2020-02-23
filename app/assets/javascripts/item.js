@@ -59,7 +59,6 @@ $(function(){
     //remove対象のidを編集
     var removeGroup = "#js-file_group-" + targetIndex
     var removeArea = "#imageArea-" + targetIndex
-    console.log(removeGroup)
     $(removeGroup).remove();
     $(`img[data-index="${targetIndex}"]`).remove();
 
