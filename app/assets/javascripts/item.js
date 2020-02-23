@@ -2,7 +2,7 @@ $(function(){
   // 画像用のinputを生成する関数
   const buildFileField = (num)=> {
     const html = `<label class="filelabel" id="label-${num}">
-                    <div data-index="${num}" class="js-file_group">
+                    <div data-index="${num}" class="js-file_group" id=js-file_group-${num}>
                       <input class="js-file" type="file"
                       name="item[images_attributes][${num}][src]"
                       id="item_images_attributes_${num}_src"><br>
@@ -12,11 +12,14 @@ $(function(){
   }
   // プレビュー用のimgタグを生成する関数
   const buildImg = (index, url)=> {
-    const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
+    const html = `<div class="imageArea" id="imageArea-${index}">
+                    <img data-index="${index}" src="${url}" width="118px" height="118px" class="imageEdit">
+                    <span class="js-remove" data-index=${index}>削除</span>
+                  </div>`;
     return html;
   }
 
-  // file_fieldのnameに動的なindexをつける為の配列
+  // file_fieldのnameに動的なindexをつける為の配列ー
   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
   // 既に使われているindexを除外
   lastIndex = $('.js-file_group:last').data('index');
@@ -37,9 +40,10 @@ $(function(){
       $('#previews').append(buildImg(targetIndex, blobUrl));
       // 1つ前のアップロードボタンエリアを非表示（display:none）にする
       $('.filelabel').css('display', 'none');
+      $('.image__lower--image_text').css('display', 'none');
       // fileIndexの先頭の数字を使ってinputを作る
       $('#image-box').append(buildFileField(fileIndex[0]));
-      $('#image-box').append('<span class="js-remove" data-index="'+fileIndex[0]+'">削除</span>')
+      // $('#image-box').append('<span class="js-remove" data-index="'+fileIndex[0]+'">削除</span>')
       fileIndex.shift();
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
@@ -54,16 +58,21 @@ $(function(){
     if (hiddenCheck) hiddenCheck.prop('checked', true);
 
     //remove対象のidを編集
-    var removeGroup = "js-file_group-" + targetIndex
+    var removeGroup = "#js-file_group-" + targetIndex
+    var removeArea = "#imageArea-" + targetIndex
     console.log(removeGroup)
-    $('#removeGroup').remove();
+    $(removeGroup).remove();
     $(`img[data-index="${targetIndex}"]`).remove();
 
     // 画像入力欄が0個にならないようにしておく
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
 
     //自信（削除ボタンを消す
-    $(this).remove()
+    $(this).remove();
+    
+    //imageAreaを消す
+    $(removeArea).remove();
+    
 
   });
 });

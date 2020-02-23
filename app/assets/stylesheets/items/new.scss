@@ -71,8 +71,14 @@ select{
       padding: 40px;
       border-bottom: solid 2px whitesmoke;
       .js-remove{
-        position: absolute;
         z-index:2;
+        display: flex;
+        position: relative;
+        color: rgb(0, 149, 238);
+        align-items: center;
+        height: 38px;
+        cursor: pointer;
+        justify-content: center;
       }
       .filelabel{
         cursor:pointer;
@@ -87,6 +93,10 @@ select{
       }
       .previewsClass{
         position: absolute;
+        display: flex;
+        .imageArea{
+          border-right: dashed 1px lightgray;
+        }
       }
       &__upper{
         font-size: 16px;
