@@ -43,7 +43,6 @@ $(function(){
       $('.image__lower--image_text').css('display', 'none');
       // fileIndexの先頭の数字を使ってinputを作る
       $('#image-box').append(buildFileField(fileIndex[0]));
-      // $('#image-box').append('<span class="js-remove" data-index="'+fileIndex[0]+'">削除</span>')
       fileIndex.shift();
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
@@ -72,11 +71,8 @@ $(function(){
     
     //imageAreaを消す
     $(removeArea).remove();
-    
-
   });
 });
-
 
 $(function(){
   $('#price_calc').on('input', function(){
