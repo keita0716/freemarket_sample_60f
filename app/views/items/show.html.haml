@@ -6,20 +6,11 @@
       = @item.name
     .shosaimain__iteminfo.clearfix
       .shosaimain__iteminfo__image
-        = image_tag '45019.png', height: "300", width: "300"
+        = image_tag @images[0].src.url, height: "300", width: "300"
         .shosaimain__iteminfo__underimage
-          .shosaimain__iteminfo__underimage__sub
-            = image_tag '45019.png', height: "60", width: "60"
-          .shosaimain__iteminfo__underimage__sub
-            = image_tag '45019.png', height: "60", width: "60"
-          .shosaimain__iteminfo__underimage__sub
-            = image_tag '45019.png', height: "60", width: "60"
-          .shosaimain__iteminfo__underimage__sub
-            = image_tag '45019.png', height: "60", width: "60"
-          .shosaimain__iteminfo__underimage__sub
-            = image_tag '45019.png', height: "60", width: "60"
-          .shosaimain__iteminfo__underimage__sub
-            = image_tag '45019.png', height: "60", width: "60"
+          - @images.each do |image|
+            .shosaimain__iteminfo__underimage__sub
+              = image_tag image.src.url, height: "60", width: "60"
       .shosaimain__iteminfo__table
         %table
           %tbody
