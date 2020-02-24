@@ -9,7 +9,7 @@
   position: absolute;
   .ad{
     height: 400px;
-    background: url(free_photo.jpg);
+    background: image-url("free_photo.jpg");
     &__message{
       font-size: 60px;
       color: white;

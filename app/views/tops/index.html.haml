@@ -44,7 +44,7 @@
           %li.item_list__a
             = link_to item_path(category_item.id) do
               .item_list__a--image
-                = image_tag Image.where(item_id: category_item.id).first.image, height: "190", width: "180"
+                = image_tag Image.where(item_id: category_item.id).first.src.url, height: "190", width: "180"
                 .item_list__a--image_price
                   = "¥#{category_item.price}"
               .item_list__a--title
@@ -72,7 +72,7 @@
           %li.item_list__a
             = link_to item_path(brand_item.id) do
               .item_list__a--image
-                = image_tag Image.where(item_id: brand_item.id).first.image, height: "190", width: "180"
+                = image_tag Image.where(item_id: brand_item.id).first.src.url, height: "190", width: "180"
                 .item_list__a--image_price
                   = "¥#{brand_item.price}"
               .item_list__a--title
