@@ -3,41 +3,79 @@
 
 .contents
   .ad
-    = link_to '*'
+    = link_to '*' do
+      .ad__message
+        キャンペーン実施中！
 
-  .categories
-    .category
+  .popularities
+    .popularity
       .h1
         人気のカテゴリー
-    %ul.category_list
-      / - @categories.each do |category|
-      %li.category_list__a
-        = link_to '*' do
-          カテゴリー１
-          / = category.name
+    %ul.popularity_list
+      - @category.first(4).each do |category|
+        %li.popularity_list__a
+          = link_to '*' do
+            = Category.find(category.category_id).category_left_name
+            
   .items
-    / - @categories.each do |category|
-    .top_contents
-      .top_contents__left
-        / = category.name
-        新着アイテム
-      .top_contents__right
-        = link_to '*' do
-          もっと見る ＞
-    %ul.item_list
-      / - @categories_item.each do |category_item|
-      - @items.first(10).each do |item|
-        %li.item_list__a
-          /= link_to item_path(category_item.id) do
-          = link_to item_path(item.id) do
-            .item_list__a--image
-              = image_tag Image.where(item_id: item.id).first.src.url, height: "190", width: "180"
-              .item_list__a--image_price
-                / = "¥ # {category_item.price}"
-                = "¥#{item.price}"
-            .item_list__a--title
-              / = category_item.name
-              = item.name
-  / ブランドも作る
+    - @category.first(4).each do |category|
+      .top_contents
+        .top_contents__left
+          = "#{Category.find(category.category_id).category_left_name}新着アイテム"
+        .top_contents__right
+          = link_to '*' do
+            もっと見る ＞
+      %ul.item_list
+        - @category_id = 1..35 if Category.find(category.category_id).category_left_id == 1
+        - @category_id = 36..42 if Category.find(category.category_id).category_left_id == 2
+        - @category_id = 43 if Category.find(category.category_id).category_left_id == 3
+        - @category_id = 44 if Category.find(category.category_id).category_left_id == 4
+        - @category_id = 45 if Category.find(category.category_id).category_left_id == 5
+        - @category_id = 46 if Category.find(category.category_id).category_left_id == 6
+        - @category_id = 47 if Category.find(category.category_id).category_left_id == 7
+        - @category_id = 48 if Category.find(category.category_id).category_left_id == 8
+        - @category_id = 49 if Category.find(category.category_id).category_left_id == 9
+        - @category_id = 50 if Category.find(category.category_id).category_left_id == 10
+        - @category_id = 51 if Category.find(category.category_id).category_left_id == 11
+        - @category_id = 52 if Category.find(category.category_id).category_left_id == 12
+        - @category_id = 53 if Category.find(category.category_id).category_left_id == 13
+        - @category_items = @items.where(category_id: @category_id)
+        - @category_items.first(10).each do |category_item|
+          %li.item_list__a
+            = link_to item_path(category_item.id) do
+              .item_list__a--image
+                = image_tag Image.where(item_id: category_item.id).first.src.url, height: "190", width: "180"
+                .item_list__a--image_price
+                  = "¥#{category_item.price}"
+              .item_list__a--title
+                = category_item.name
+  .popularities
+    .popularity
+      .h1
+        人気のブランド
+    %ul.popularity_list
+      - @brand.first(4).each do |brand|
+        %li.popularity_list__a
+          = link_to '*' do
+            = Brand.find(brand.brand_id).name
+  .items
+    - @brand.first(4).each do |brand|
+      .top_contents
+        .top_contents__left
+          = "#{Brand.find(brand.brand_id).name}新着アイテム"
+        .top_contents__right
+          = link_to '*' do
+            もっと見る ＞
+      %ul.item_list
+        - @brand_items = @items.where(brand_id: brand.brand_id)
+        - @brand_items.first(10).each do |brand_item|
+          %li.item_list__a
+            = link_to item_path(brand_item.id) do
+              .item_list__a--image
+                = image_tag Image.where(item_id: brand_item.id).first.src.url, height: "190", width: "180"
+                .item_list__a--image_price
+                  = "¥#{brand_item.price}"
+              .item_list__a--title
+                = brand_item.name
   = render 'tops/sell_button'
   = render 'tops/footer'

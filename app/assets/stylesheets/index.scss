@@ -9,12 +9,18 @@
   position: absolute;
   .ad{
     height: 400px;
-    background: url(free_photo.jpg);
+    background: image-url("free_photo.jpg");
+    &__message{
+      font-size: 60px;
+      color: white;
+      text-align: center;
+      padding-top: 170px;
+    }
   }
-  .categories{
+  .popularities{
     height: 160px;
     background-color: white;
-    .category{
+    .popularity{
       height: 80px;
       position: relative;
       .h1{
@@ -26,13 +32,13 @@
         bottom: 0;
       }
     }
-    .category_list{
+    .popularity_list{
       display: flex;
       font-size: 15px;
       margin: auto;
       padding-top: 30px;
       height: 80px;
-      width: calc(100% - 800px);
+      justify-content: center;
       &__a{
         height: 20px;
         padding: 5px 20px;
@@ -43,7 +49,6 @@
     }
   }
   .items{
-    height: 100%;
     margin: auto;
     padding: 42px 200px 100px;
     background-color: whitesmoke;
