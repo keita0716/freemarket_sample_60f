@@ -6,20 +6,12 @@
       = @item.name
     .shosaimain__iteminfo.clearfix
       .shosaimain__iteminfo__image
-        = image_tag '45019.png', height: "300", width: "300"
+        .shosaimain__iteminfo__image__main
+        = image_tag @images[0].src.url, height: "300", width: "300",id:"mainImage"
         .shosaimain__iteminfo__underimage
-          .shosaimain__iteminfo__underimage__sub
-            = image_tag '45019.png', height: "60", width: "60"
-          .shosaimain__iteminfo__underimage__sub
-            = image_tag '45019.png', height: "60", width: "60"
-          .shosaimain__iteminfo__underimage__sub
-            = image_tag '45019.png', height: "60", width: "60"
-          .shosaimain__iteminfo__underimage__sub
-            = image_tag '45019.png', height: "60", width: "60"
-          .shosaimain__iteminfo__underimage__sub
-            = image_tag '45019.png', height: "60", width: "60"
-          .shosaimain__iteminfo__underimage__sub
-            = image_tag '45019.png', height: "60", width: "60"
+          - @images.each do |image|
+            .shosaimain__iteminfo__underimage__sub{data: { url:image.src.url }}
+              = image_tag image.src.url, height: "60", width: "60"
       .shosaimain__iteminfo__table
         %table
           %tbody
@@ -53,7 +45,8 @@
               %th ブランド
               %td
                 = link_to '' ,class:"text-blue" do 
-                  = @itemBrand.name
+                  - if @item.brand_id.present?
+                    = Brand.find(@item.brand_id).name
             %tr
               %th 商品の状態
               %td 
@@ -107,3 +100,4 @@
       %button.shosaimessage__content__button
         = "コメントする"
   .shosailink
+  = render 'tops/footer'

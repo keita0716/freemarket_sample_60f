@@ -70,6 +70,34 @@ select{
     .image{
       padding: 40px;
       border-bottom: solid 2px whitesmoke;
+      .js-remove{
+        z-index:2;
+        display: flex;
+        position: relative;
+        color: rgb(0, 149, 238);
+        align-items: center;
+        height: 38px;
+        cursor: pointer;
+        justify-content: center;
+      }
+      .filelabel{
+        cursor:pointer;
+        width: 618px;
+        height: 162px;
+        position: relative;
+        display: inline-block;
+        z-index:1;
+        & input{
+          display:none;
+        }
+      }
+      .previewsClass{
+        position: absolute;
+        display: flex;
+        .imageArea{
+          border-right: dashed 1px lightgray;
+        }
+      }
       &__upper{
         font-size: 16px;
         display: flex;

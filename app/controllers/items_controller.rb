@@ -13,9 +13,9 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @sellUser = User.find(@item.user_id)
-    @itemBrand = Brand.find(@item.brand_id)
+    @sellUser = User.find(@item.seller_id)
     @itemCategory = Category.find(@item.category_id)
+    @images = Image.where(item_id:params[:id])
   end
 
   def create
