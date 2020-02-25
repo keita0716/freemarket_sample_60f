@@ -76,8 +76,21 @@
           = "(税込)" 
           %span.shosaimain__pricearea__soryo
             = "送料込み"
-    .shosaimain__buybutton
-      ="購入画面に進む"
+    - if current_user.id != @item.seller_id
+      .shosaimain__buybutton
+        ="購入画面に進む"
+    - if current_user.id == @item.seller_id
+      = link_to edit_item_path(@item.id) do
+        .shosaimain__buybutton
+          ="変更する"
+      .orlayout
+        = "or"
+      .shosaimain__buybutton.colorlightgray
+        ="出品を一時停止する"
+      .shosaimain__buybutton.colorlightgray
+        = link_to 'この商品を削除する', item_path(@item.id), method: :delete
+      
+
     .shosaimain__honbun
       = @item.description
     .shosaimain__kabu
