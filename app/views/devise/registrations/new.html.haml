@@ -44,12 +44,12 @@
             - if @minimum_password_length
               %em
             %br/
-            = f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上"
+            = f.password_field :password, autocomplete: "new-password", placeholder: "7文字以上"
           .field
             %span.label パスワード（確認）
             %span.required 必須
             %br/
-            = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "6文字以上"
+            = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "7文字以上"
             %p.registration__main__single__text__light  ※ 英字と数字の両方を含めて設定してください
           .field__form__password__revelation
             .field__form__password__revelation__checkbox__default

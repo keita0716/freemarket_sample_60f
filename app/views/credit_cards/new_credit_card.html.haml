@@ -23,12 +23,12 @@
   .registration
     .registration__main
       %h2.registration__main__head クレジットカード情報登録
-      = form_for(@credit_card, html: { class: 'registration__main__form'}) do |f|
+      = form_for(@credit_card, html: { class: "registration__main__form",id:"charge-form"}) do |f|
         = render "devise/shared/error_messages", resource: @credit_card
         .field
           %span.label カード番号
           %span.required 必須
-          = f.number_field :card_number, class: "input-default",  placeholder: "半角英数のみ",id: "card_number"
+          = f.number_field :card_number, class: "input-default",  placeholder: "半角英数のみ",id: "card_number",maxlength: "16"
         .field__card__type
           %ul
             %li 
@@ -47,18 +47,20 @@
           %span.label 有効期限
           %span.required 必須
           .field__credit__card__limit
-            = f.select :card_limit_month,[["01"], ["02"], ["03"], ["04"], ["05"], ["06"], ["07"], ["08"], ["09"], ["10"], ["11"], ["12"]], id: "card_limit_month"
+            = f.select :card_limit_month,[["01"], ["02"], ["03"], ["04"], ["05"], ["06"], ["07"], ["08"], ["09"], ["10"], ["11"], ["12"]], class: "exp_month"
             月
-            = f.select :card_limit_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],id: "card_limit_year"
+            = f.select :card_limit_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],class: "exp_year"
             年
         .field
           %span.label カード番号
           %span.required 必須
-          = f.text_field :security_number, class: "security_number",  placeholder: "カード背面4桁もしくは3桁の番号",id:"security_number"
+          = f.text_field :security_number, class: "security_number",  placeholder: "カード背面4桁もしくは3桁の番号",id:"security_number", maxlength: "4"
         .field__seqcode
           .field__seqcode__text
             ?
           %span カード背面の番号とは？
         .registration__main__actions
-          = f.submit "Next"
+          = f.submit "Next",id:"submit-button"
+        #card_token
+        %input.payjp-token{ type: "hidden", name: "payjpToken", value: "" }
     = render "devise/shared/registration_login_footer"

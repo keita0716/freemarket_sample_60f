@@ -58,7 +58,6 @@
         %li.popularity_list__a
           = link_to '*' do
             = Brand.find(brand.brand_id).name
-          
   .items
     - @brand.first(4).each do |brand|
       .top_contents
