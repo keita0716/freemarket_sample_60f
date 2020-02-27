@@ -88,9 +88,7 @@
       .shosaimain__buybutton.colorlightgray
         ="出品を一時停止する"
       .shosaimain__buybutton.colorlightgray
-        ="この商品を削除する"
-
-
+        = link_to 'この商品を削除する', item_path(@item.id), method: :delete
     .shosaimain__honbun
       = @item.description
     .shosaimain__kabu
