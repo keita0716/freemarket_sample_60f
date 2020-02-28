@@ -70,6 +70,9 @@ $(function(){
     
     //imageAreaを消す
     $(removeArea).remove();
+
+    targetId = '#item_images_attributes_' + targetIndex + '_id';
+    $(targetId).remove();
   });
 });
 
@@ -90,3 +93,43 @@ $(function(){
   })
 })
 
+$('#image-box-edit').on('click', '.js-remove', function() {
+  const targetIndex = $(this).data('index');
+  var image_id = $(this).data("imgid")
+  // 該当indexを振られているチェックボックスを取得する
+  const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
+  // もしチェックボックスが存在すればチェックを入れる
+  if (hiddenCheck) hiddenCheck.prop('checked', true);
+
+  //remove対象のidを編集
+  var removeGroup = "#js-file_group-" + targetIndex
+  var removeArea = "#imageArea-" + targetIndex
+  $(removeGroup).remove();
+  $(`img[data-index="${targetIndex}"]`).remove();
+
+  // 画像入力欄が0個にならないようにしておく
+  if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
+
+  //自信（削除ボタンを消す
+  $(this).remove();
+  
+  //imageAreaを消す
+  $(removeArea).remove();
+
+  targetId = '#item_images_attributes_' + targetIndex + '_id';
+  $(targetId).remove();
+
+  $.ajax({
+    // Api::ProductsControllerのimage_destroyに飛ぶ
+    type: 'DELETE',
+    url: '/api/destroy/image_destroy',
+    data: {img_id: image_id},
+    dataType: 'json'
+  })
+    .done(function() {
+    alert("削除しました");
+  })
+    .fail(function() {
+    alert("削除に失敗しました");
+  });
+});
