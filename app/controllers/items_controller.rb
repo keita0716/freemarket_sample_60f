@@ -19,6 +19,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    logger.debug(item_params)
     @item = Item.new(item_params)
     if @item.save
       redirect_to root_path
@@ -28,14 +29,16 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    
   end
 
 
   def update
-    if @item.update(item_params)
-      redirect_to root_path
+    if @item.update(update_params) && params.require(:item).keys[0] == "images_attributes"
+      redirect_to root_path ,notice: '商品を編集しました'
     else
-      render :edit
+      flash[:alert] = '編集に失敗しました。必須項目を確認してください。'
+      redirect_to edit_item_path
     end
   end
 
@@ -62,7 +65,11 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-  params.require(:item).permit(:name, :price, :description, :category_id, :condition_id, :delivery_charge_id,:shipping_date_id, :shipping_prefecture_id, images_attributes: [:src]).merge(seller_id: current_user.id) 
+    params.require(:item).permit(:name, :price, :description, :category_id, :condition_id, :delivery_charge_id,:shipping_date_id, :shipping_prefecture_id, images_attributes: [:src]).merge(seller_id: current_user.id) 
+  end
+
+  def update_params
+    params.require(:item).permit(:name, :price, :description, :category_id, :condition_id, :delivery_charge_id,:shipping_date_id, :shipping_prefecture_id, images_attributes: [:src,:id]).merge(seller_id: current_user.id) 
   end
 
   def set_item

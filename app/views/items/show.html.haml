@@ -71,7 +71,7 @@
     .shosaimain__pricearea
       .shosaimain__pricearea__price
         = '¥'
-        = @item.price.to_s(:delimited)
+        = (@item.price*10/9).to_s(:delimited)
         %span.shosaimain__pricearea__zekomi
           = "(税込)" 
           %span.shosaimain__pricearea__soryo
@@ -82,16 +82,14 @@
           ="購入画面に進む"
     - if current_user.id == @item.seller_id
       = link_to edit_item_path(@item.id) do
-        .shosaimain__buybutton
+        .shosaimain__buybutton.size14
           ="変更する"
       .orlayout
         = "or"
-      .shosaimain__buybutton.colorlightgray
+      .shosaimain__buybutton.colorlightgray.size14
         ="出品を一時停止する"
-      .shosaimain__buybutton.colorlightgray
-        ="この商品を削除する"
-
-
+      .shosaimain__buybutton.colorlightgray.size14
+        = link_to 'この商品を削除する', item_path(@item.id), method: :delete,class:"colorwhite"
     .shosaimain__honbun
       = @item.description
     .shosaimain__kabu

@@ -24,7 +24,8 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'tops#index'
-  resources :items, only: [:new, :create,:edit]
+
+  resources :items, only: [:new, :create, :edit, :destroy,:update]
   resources :mypage, only: [:index, :create, :edit, :update] do
     resources :identification, only: [:index]
     resources :card, only: [:index]
@@ -35,4 +36,11 @@ Rails.application.routes.draw do
   end
   resources :brands, only: [:index ,:show]
 
+  namespace :api do
+    resources "destroy", controller: :items, only: :image_destroy, defaults: { format: 'json' } do
+      collection do
+        delete "image_destroy"
+      end
+    end
+  end
 end

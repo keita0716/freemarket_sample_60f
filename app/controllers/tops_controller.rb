@@ -5,7 +5,5 @@ class TopsController < ApplicationController
     @brand = Item.group(:brand_id).order('count(brand_id) DESC').where("brand_id is not null")
     @items = Item.where("buyer_id IS NULL").where("auction_id IS NULL").order(id:"DESC").includes(:images)
   end
-
-    
-
+  
 end
