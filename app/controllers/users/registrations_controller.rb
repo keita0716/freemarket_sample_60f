@@ -29,13 +29,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def new_authentication_phonenumber
     @authentication_phonenumber = AuthenticationPhonenumber.new
-    #インスタンス生成（パラメータを入れる箱）
+       #バリデーションを行い、エラーならnew_authentication_phonenumberアクションに戻る 
   end
 
   #form_forでsubmitした時にcreate_authentication_phonenumberが発火
   def create_authentication_phonenumber
     @user = User.new(session["devise.regist_data"]["user"])
     @address = @user.build_address
+    @authentication_phonenumber = AuthenticationPhonenumber.new(authentication_phonenumber_params)
+    unless @authentication_phonenumber.valid?
+      flash.now[:alert] = @authentication_phonenumber.errors.full_messages
+      render :new_authentication_phonenumber and return
+       #バリデーションを行い、エラーならnew_authentication_phonenumberアクションに戻る
+    end  
     #アドレスモデルのインスタンス生成
     render :new_address
      #new_addressに移動
@@ -46,7 +52,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new(session["devise.regist_data"]["user"])
     @address = Address.new(address_params)
      #アドレスインスタンスに入力した値を代入
-     unless @address.valid?
+    unless @address.valid?
       flash.now[:alert] = @address.errors.full_messages
       render :new_address and return
        #バリデーションを行い、エラーならnew_addressアクションに戻る
@@ -69,5 +75,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def address_params
     params.require(:address).permit(:address_family_name,:address_first_name,:address_family_kana_name,:address_first_kana_name,:zipcode,:prefecture,:city,:block,:building,:tel)
   end
- 
+
+  def authentication_phonenumber_params
+    params.require(:authentication_phonenumber).permit(:authentication_phonenumber) 
+  end
 end

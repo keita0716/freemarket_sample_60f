@@ -27,7 +27,7 @@
         = render "devise/shared/error_messages", resource: @authentication_phonenumber
         .field
           %span.label 携帯電話の番号
-          = f.text_field :authentication_phonenumber, placeholder: '携帯電話の番号を入力', class: "registration__main__authentication__phonenumber" 
+          = f.text_field :authentication_phonenumber, placeholder: '携帯電話の番号を入力', class: "registration__main__authentication__phonenumber" ,maxlength:"11"
         .registration__main__single__text 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
         .registration__main__actions
           = f.submit "次へ進む" 

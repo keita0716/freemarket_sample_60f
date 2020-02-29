@@ -1,0 +1,63 @@
+.purchase__login__container 
+  .purchase__simple__header
+    .purchase__simple__header__logo
+      = link_to root_path do
+        = image_tag 'fmarket_logo_red.svg', alt: 'logo', class: 'purchase__header__link__image', height: '49', width: '185'
+  %main.purchase__main
+    .purchase__main__box
+      %h2.purchase__main__box__head 
+        = "購入内容の確認"
+      .purchase__single
+        .purchase__single__product
+          = image_tag @images[0].src.url, alt: 'logo', class: 'purchase__single__product__image', height: '80', width: '80'
+          .purchase__single__product__box
+            .purchase__single__product__box__text 
+              = @item.name
+            .purchase__single__product__box__price
+              = '¥' + @item.price.to_s(:delimited) + "（税込）送料込み"
+      .purchase__multiple  
+        .purchase__multiple__box  
+          .purchase__multiple__box__price
+            .purchase__multiple__box__price__detail
+              .purchase__multiple__box__price__detail__text
+                = "支払い金額"
+              .purchase__multiple__box__price__detail__price
+                = '¥'
+                = @item.price.to_s(:delimited)
+            .purchase__multiple__box__price__point
+              %input#point__use{type: "checkbox"}/
+              .purchase__multiple__box__price__point__text
+                = "ポイントを使用(所持ポイント: P0)"
+          .purchase__multiple__box__method
+            .purchase__multiple__box__method__box
+              .purchase__multiple__box__method__box__main
+                .purchase__multiple__box__method__box__main__text
+                  支払い方法
+                .purchase__multiple__box__method__box__main__change
+                  変更する
+              .purchase__multiple__box__method__box__method
+                クレジットカード
+              .purchase__multiple__box__method__box__number
+                = "**** **** **** " + @customer_card.last4
+              .purchase__multiple__box__method__box__limit
+                - exp_month = @customer_card.exp_month.to_s
+                - exp_year = @customer_card.exp_year.to_s.slice(2,3)
+                = exp_month + " / " + exp_year
+                .purchase__multiple__box__method__box__point__card__company
+                  =image_tag "Visa_Inc._logo.svg", size: "50x30",alt:"visa"
+          .purchase__multiple__box__address
+            .purchase__multiple__box__address__main
+              .purchase__multiple__box__address__main__text
+                配送先
+              .purchase__multiple__box__address__main__change
+                変更する
+            .purchase__multiple__box__address__zip
+              = @addresses.zipcode.to_s
+            .purchase__multiple__box__address__address
+              = @addresses.prefecture + @addresses.city + @addresses.block + @addresses.building
+            .purchase__multiple__box__address__name
+              = @addresses.address_family_name + " " + @addresses.address_first_name
+          .purchase__multiple__box__confirm
+            .purchase__multiple__box__confirm__btn
+              = link_to "購入する", item_purchase_complete_path(@item.id), method: :post
+  = render "devise/shared/registration_login_footer" 

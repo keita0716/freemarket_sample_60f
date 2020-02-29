@@ -77,8 +77,9 @@
           %span.shosaimain__pricearea__soryo
             = "送料込み"
     - if current_user.id != @item.seller_id
-      .shosaimain__buybutton
-        ="購入画面に進む"
+      = link_to item_purchase_item_path(@item.id) do
+        .shosaimain__buybutton
+          ="購入画面に進む"
     - if current_user.id == @item.seller_id
       = link_to edit_item_path(@item.id) do
         .shosaimain__buybutton.size14

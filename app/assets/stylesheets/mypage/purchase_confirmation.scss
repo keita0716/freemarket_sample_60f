@@ -24,13 +24,34 @@
   height: 100%;
   width: 100%;
 }
-main.purchase__main{
-  .purchase__main__box{
+.purchase__main{
+  &__complete{
+    height:70px;
+    background: #fff6de;
+    width: 700px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+    &__head  {
+      font-weight: 600;
+      padding: 32px;
+      text-align: center;
+      color: red;
+      font-size: 16px;
+    }
+    &__s  {
+      font-weight: 600;
+      font-size: 22px;
+      padding: 8px;
+      text-align: center;
+      font-size: 14px;
+    }
+  }
+  &__box{
     background: #fff;
     width: 700px;
     margin: 0 auto;
     padding-bottom: 40px;
-    h2.purchase__main__box__head {
+    &__head {
       font-weight: 600;
       font-size: 22px;
       padding: 32px;
