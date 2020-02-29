@@ -30,7 +30,8 @@ Rails.application.routes.draw do
     resources :card, only: [:index]
   end
   resources :items, only: [:show] do
-    resources :purchase_items, only: [:create, :show] 
+    resources :purchase_items, only: [:show] 
+    post '/purchase_complete',to: 'purchase_items#purchase_complete'
   end
   resources :brands, only: [:index ,:show]
 

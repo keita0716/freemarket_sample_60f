@@ -14,12 +14,12 @@
         = "購入が完了しました"
       .purchase__single
         .purchase__single__product
-          = image_tag 'product.jpg', alt: 'logo', class: 'purchase__single__product__image', height: '80', width: '80'
+          = image_tag @images[0].src.url, alt: 'logo', class: 'purchase__single__product__image', height: '80', width: '80'
           .purchase__single__product__box
             .purchase__single__product__box__text 
-              = "段ボール"
+              = @item.name
             .purchase__single__product__box__price
-              = "¥12,000 （税込）送料込み"
+              = '¥' + @item.price.to_s(:delimited) + "（税込）送料込み"
       .purchase__multiple  
         .purchase__multiple__box  
           .purchase__multiple__box__method
@@ -27,26 +27,24 @@
               .purchase__multiple__box__method__box__main
                 .purchase__multiple__box__method__box__main__text
                   支払い方法
-                .purchase__multiple__box__method__box__main__change
-                
               .purchase__multiple__box__method__box__method
                 クレジットカード
               .purchase__multiple__box__method__box__number
-                ************1234
+                = "**** **** **** " + @customer_card.last4
               .purchase__multiple__box__method__box__limit
-                有効期限 01 / 23
+                - exp_month = @customer_card.exp_month.to_s
+                - exp_year = @customer_card.exp_year.to_s.slice(2,3)
+                = exp_month + " / " + exp_year
                 .purchase__multiple__box__method__box__point__card__company
                   =image_tag "Visa_Inc._logo.svg", size: "50x30",alt:"visa"
           .purchase__multiple__box__address
             .purchase__multiple__box__address__main
               .purchase__multiple__box__address__main__text
-                配送先
-              .purchase__multiple__box__address__main__change
-                
+                配送先        
             .purchase__multiple__box__address__zip
-              = "〒123-1234"
+              = @addresses.zipcode.to_s
             .purchase__multiple__box__address__address
-              = "愛知県 名古屋市"
+              = @addresses.prefecture + @addresses.city + @addresses.block + @addresses.building
             .purchase__multiple__box__address__name
-              = "フリマ次郎"
+              = @addresses.address_family_name + " " + @addresses.address_first_name
   = render "devise/shared/registration_login_footer" 

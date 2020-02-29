@@ -38,9 +38,11 @@
               .purchase__multiple__box__method__box__method
                 クレジットカード
               .purchase__multiple__box__method__box__number
-                ************1234
+                = "**** **** **** " + @customer_card.last4
               .purchase__multiple__box__method__box__limit
-                有効期限 01 / 23
+                - exp_month = @customer_card.exp_month.to_s
+                - exp_year = @customer_card.exp_year.to_s.slice(2,3)
+                = exp_month + " / " + exp_year
                 .purchase__multiple__box__method__box__point__card__company
                   =image_tag "Visa_Inc._logo.svg", size: "50x30",alt:"visa"
           .purchase__multiple__box__address
@@ -57,5 +59,5 @@
               = @addresses.address_family_name + " " + @addresses.address_first_name
           .purchase__multiple__box__confirm
             .purchase__multiple__box__confirm__btn
-              = link_to "購入する"
+              = link_to "購入する", item_purchase_complete_path(@item.id), method: :post
   = render "devise/shared/registration_login_footer" 
