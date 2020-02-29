@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(version: 2020_02_25_144101) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "customer_id"
-    t.integer "card_id"
+    t.string "customer_id"
+    t.string "card_id"
     t.index ["user_id"], name: "index_credit_cards_on_user_id"
   end
 

@@ -15,8 +15,6 @@ Rails.application.routes.draw do
   post 'credit_cards', to: 'credit_cards#create_credit_card'
   get 'logout', to: 'mypage#logout'
   post 'logout', to: 'mypage#logout'
-  get 'purchase_confirmation', to: 'card#purchase_confirmation'
-  post 'purchase_confirmation', to: 'card#purchase_confirmation'
   get 'saling_items', to: 'items#saling_items'
   post 'saling_items', to: 'items#saling_items'
   get 'trading_items', to: 'items#trading_items'
@@ -31,6 +29,9 @@ Rails.application.routes.draw do
     resources :identification, only: [:index]
     resources :card, only: [:index]
   end
-  resources :items, only: [:show]
+  resources :items, only: [:show] do
+    resources :purchase_items, only: [:create, :show] 
+  end
   resources :brands, only: [:index ,:show]
+
 end

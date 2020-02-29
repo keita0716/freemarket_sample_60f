@@ -21,6 +21,7 @@ class CreditCardsController < ApplicationController
         card: params['payjp_token'], 
         metadata: {user_id: current_user.id} 
       )
+      
       @credit_card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       #ユーザーインスタンスに入力した値を代入
       unless @credit_card.valid?

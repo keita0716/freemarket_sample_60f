@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, except: [:index, :new, :create,:saling_items,:trading_items,:soldout_items,:buyer_maker]
+  before_action :set_item, except: [:index, :new, :create,:saling_items,:trading_items,:soldout_items,:buyer_maker,:purchase_complete ]
   before_action :set_current_user_items,only:[:trading_items,:saling_items,:soldout_items,:buyer_maker]
   before_action :set_user,only:[:trading_items,:saling_items,:soldout_items,:buyer_maker]
   def index
@@ -53,6 +53,11 @@ class ItemsController < ApplicationController
   def soldout_items    #売却済み
   end
 
+  def purchase_confirmation   
+  end
+  
+  def purchase_complete   
+  end
 
   private
 

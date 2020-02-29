@@ -4,9 +4,14 @@
       = link_to root_path do
         = image_tag 'fmarket_logo_red.svg', alt: 'logo', class: 'purchase__header__link__image', height: '49', width: '185'
   %main.purchase__main
+    .purchase__main__complete
+      %h2.purchase__main__complete__head 
+        = "発送をお待ちください"
+        .purchase__main__box__head__complete__s 
+          = "出品者からの発送通知をお待ちください"
     .purchase__main__box
       %h2.purchase__main__box__head 
-        = "購入内容の確認"
+        = "購入が完了しました"
       .purchase__single
         .purchase__single__product
           = image_tag 'product.jpg', alt: 'logo', class: 'purchase__single__product__image', height: '80', width: '80'
@@ -17,23 +22,13 @@
               = "¥12,000 （税込）送料込み"
       .purchase__multiple  
         .purchase__multiple__box  
-          .purchase__multiple__box__price
-            .purchase__multiple__box__price__detail
-              .purchase__multiple__box__price__detail__text
-                = "支払い金額"
-              .purchase__multiple__box__price__detail__price
-                = "¥12,000"
-            .purchase__multiple__box__price__point
-              %input#point__use{type: "checkbox"}/
-              .purchase__multiple__box__price__point__text
-                = "ポイントを使用(所持ポイント: P0)"
           .purchase__multiple__box__method
             .purchase__multiple__box__method__box
               .purchase__multiple__box__method__box__main
                 .purchase__multiple__box__method__box__main__text
                   支払い方法
                 .purchase__multiple__box__method__box__main__change
-                  変更する
+                
               .purchase__multiple__box__method__box__method
                 クレジットカード
               .purchase__multiple__box__method__box__number
@@ -47,14 +42,11 @@
               .purchase__multiple__box__address__main__text
                 配送先
               .purchase__multiple__box__address__main__change
-                変更する
+                
             .purchase__multiple__box__address__zip
               = "〒123-1234"
             .purchase__multiple__box__address__address
               = "愛知県 名古屋市"
             .purchase__multiple__box__address__name
               = "フリマ次郎"
-          .purchase__multiple__box__confirm
-            .purchase__multiple__box__confirm__btn
-              = link_to "購入する", destroy_user_session_path, method: :delete     
   = render "devise/shared/registration_login_footer" 
