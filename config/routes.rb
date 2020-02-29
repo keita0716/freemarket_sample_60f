@@ -35,12 +35,12 @@ Rails.application.routes.draw do
   resources :items, only: [:show]
   resources :brands, only: [:index ,:show]
 
-  # namespace :api do
-  #   resources "destroy", controller: :items, only: :image_destroy, defaults: { format: 'json' } do
-  #     collection do
-  #       delete "image_destroy"
-  #     end
-  #   end
-  # end
+  namespace :api do
+    resources "destroy", controller: :items, only: :image_destroy, defaults: { format: 'json' } do
+      collection do
+        delete "image_destroy"
+      end
+    end
+  end
 
 end
