@@ -6,7 +6,7 @@ class PurchaseItemsController < ApplicationController
       #flash[:alert] = '購入にはクレジットカード登録が必要です'
       redirect_to controller: 'credit_cards', action: 'new_credit_card'
     else
-      Payjp.api_key = 'sk_test_11bb9decc79ff2b8baa12827'
+      Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_SECRET_KEY]
       customer = Payjp::Customer.retrieve(card.customer_id)
       @customer_card = customer.cards.retrieve(card.card_id)    
     end
@@ -22,7 +22,7 @@ class PurchaseItemsController < ApplicationController
       @customer_card = customer.cards.retrieve(card.card_id)  
       # 購入した際の情報を元に引っ張ってくる
       # テーブル紐付けてるのでログインユーザーのクレジットカードを引っ張ってくる
-      Payjp.api_key = 'sk_test_11bb9decc79ff2b8baa12827'
+      Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_SECRET_KEY]
       # キーをセットする(環境変数においても良い)
       Payjp::Charge.create(
       amount: @item.price, #支払金額

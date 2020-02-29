@@ -11,7 +11,7 @@ class CreditCardsController < ApplicationController
   end
 
   def create_credit_card
-      Payjp.api_key = 'sk_test_11bb9decc79ff2b8baa12827'
+      Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_SECRET_KEY]
     if params['payjp_token'].blank?
       redirect_to action: "new_credit_card"
     else
