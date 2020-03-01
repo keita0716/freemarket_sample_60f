@@ -1,0 +1,46 @@
+ja:
+  activerecord:
+    models:
+      user: 会員情報
+      address: 住所
+      authentication_phonenumber: 電話番号確認
+    attributes:
+      user: 
+        id: ID
+        created_at: 登録日時
+        updated_at: 更新日時
+        birthday: 生年月日
+        email: メールアドレス
+        password: パスワード
+        nickname: ニックネーム
+        family_name: お名前 名字
+        first_name: お名前 名前
+        family_kana_name: お名前(カナ) 名字
+        first_kana_name: お名前(カナ) 名前
+        birth_year: 年
+        birth_month: 月
+        birth_day: 日 
+      authentication_phonenumber:
+        authentication_phonenumber: 電話番号確認
+      address:
+        address_family_name: お名前 名字
+        address_first_name: お名前 名前
+        address_family_kana_name: お名前(カナ) 名字
+        address_first_kana_name: お名前(カナ) 名前
+        zipcode: 郵便番号
+        prefecture: 県
+        city: 市町村
+        block: 番地
+        building: アパート・マンション
+        tel: 電話番号
+      credit_card:
+        card_number: カード番号
+        card_limit_month: カード期限(月)
+        card_limit_year: カード期限(年)
+        security_number: セキュリティコード
+        
+
+      
+
+      
+
