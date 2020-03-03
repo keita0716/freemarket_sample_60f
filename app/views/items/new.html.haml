@@ -114,7 +114,7 @@
           .price__right--price_form
             .price__right--price_form_yen
               ¥
-            %input#price_calc.price__right--price_form_input{placeholder: "例) 300", type: "number"}/
+            = f.number_field :price, id: 'price_calc', class: 'price__right--price_form_input',placeholder: "例) 300", type: "number"
         .price__right--fee
           .price__right--fee_text
             販売手数料(10%)
@@ -125,7 +125,7 @@
           .price__right--gain_text
             販売利益
           .price__right--gain_calculation
-            = f.number_field:price, style: "display: none", id: "price"
+            %input#price{style: "display: none"}/
             .right_bar_2
     .attention
       .attention__top

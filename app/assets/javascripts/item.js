@@ -143,7 +143,7 @@ $(function(){
     // 画像入力欄が0個にならないようにしておく
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   
-    //自信（削除ボタンを消す
+    //削除ボタンを消す
     $(this).remove();
     
     //imageAreaを消す
@@ -167,6 +167,7 @@ $(function(){
   });
 });
 
+//手数料計算
 $(function(){
   $('#price_calc').on('input', function(){
     var data = $('#price_calc').val(); 

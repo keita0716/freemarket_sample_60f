@@ -110,7 +110,7 @@
           .price__right--price_form
             .price__right--price_form_yen
               ¥
-            %input#price_calc.price__right--price_form_input{placeholder: "例) 300", type: "number",value:@item.price*10/9}/
+            = f.number_field :price, id: 'price_calc', class: 'price__right--price_form_input',placeholder: "例) 300", type: "number"
         .price__right--fee
           .price__right--fee_text
             販売手数料(10%)
@@ -122,9 +122,9 @@
           .price__right--gain_text
             販売利益
           .price__right--gain_calculation
-            = f.number_field:price, style: "display: none", id: "price"
+            %input#price{style: "display: none"}/
             .right_bar_2
-              = "¥#{@item.price}"
+              = "¥#{@item.price*9/10}"
     .attention
       .attention__top
         %a{href: '*', class: "font-skyblue" }> 禁止されている出品
