@@ -21,34 +21,52 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @message = ""
+    @messageMoji = ""
+    @messageVali = ""
     if @item.images.length == 0
-      @message= '「出品画像」'
+      @messageVali = @messageVali + '「出品画像」'
       @item.images.new
     end
     if @item.name == ""
-      @message = @message + '「商品名」'
+      @messageVali = @messageVali + '「商品名」'
+    else
+      if @item.name.length > 40
+        @messageMoji = @messageMoji + '「商品名」を40文字以下にしてください。'
+      end
     end
     if @item.description == ""
-      @message = @message + '「商品の説明」'
+      @messageVali = @messageVali + '「商品の説明」'
+    else
+      if @item.description.length > 1000
+        @messageMoji = @messageMoji + '「商品の説明」を1000文字以下にしてください。'
+      end
     end
     if @item.category_id == nil
-      @message = @message + '「カテゴリー」'
+      @messageVali = @messageVali + '「カテゴリー」'
     end
     if @item.condition_id == nil
-      @message = @message + '「商品の状態」'
+      @messageVali = @messageVali + '「商品の状態」'
     end
     if @item.delivery_charge_id == nil
-      @message = @message + '「配送料の負担」'
+      @messageVali = @messageVali + '「配送料の負担」'
     end
     if @item.shipping_prefecture_id == nil
-      @message = @message + '「発送元の地域」'
+      @messageVali = @messageVali + '「発送元の地域」'
     end
     if @item.shipping_date_id == nil
-      @message = @message + '「発送までの日数」'
+      @messageVali = @messageVali + '「発送までの日数」'
     end
     if @item.price == nil
-      @message = @message + '「値段」'
+      @messageVali = @messageVali + '「値段」'
+    else
+      if (0 <= @item.price && @item.price <= 300) || @item.price > 9999999
+        @messageMoji = @messageMoji + '「価格」を300〜9,999,999円にしてください。'
+      end
     end
+    if @messageVali != ""
+      @messageVali = @messageVali + "が空です。"
+    end
+    @message = "#{@messageVali}#{@messageMoji}"
     if @message == ""
       if @item.save
         redirect_to root_path
@@ -56,21 +74,18 @@ class ItemsController < ApplicationController
         render :new
       end
     else
-      flash.now[:alert] = "#{@message}が空です。"
+      flash.now[:alert] = "#{@message}"
       render :new
     end
-
-
   end
 
   def edit
     
   end
 
-
   def update
     if @item.update(update_params) && params.require(:item).keys[0] == "images_attributes"
-      redirect_to root_path ,notice: '商品を編集しました'
+      redirect_to root_path 
     else
       flash[:alert] = '編集に失敗しました。必須項目を確認してください。'
       redirect_to edit_item_path
