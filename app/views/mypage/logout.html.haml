@@ -1,5 +1,14 @@
 .header
   = render 'tops/header'
+.pankuzu
+  %ul
+    = link_to root_path do
+      = "Freemarket"
+    = fa_icon '', class: 'icon fa fa-chevron-right'
+    = link_to mypage_index_path do
+      = "マイページ"
+    = fa_icon '', class: 'icon fa fa-chevron-right'
+    = "ログアウト"
 .main.clearfix
   .main_block
     = render 'shared/mypage_left_bar.haml'
