@@ -19,13 +19,48 @@ class ItemsController < ApplicationController
   end
 
   def create
-    logger.debug(item_params)
     @item = Item.new(item_params)
-    if @item.save
-      redirect_to root_path
+    @message = ""
+    if @item.images.length == 0
+      @message= '「出品画像」'
+      @item.images.new
+    end
+    if @item.name == ""
+      @message = @message + '「商品名」'
+    end
+    if @item.description == ""
+      @message = @message + '「商品の説明」'
+    end
+    if @item.category_id == nil
+      @message = @message + '「カテゴリー」'
+    end
+    if @item.condition_id == nil
+      @message = @message + '「商品の状態」'
+    end
+    if @item.delivery_charge_id == nil
+      @message = @message + '「配送料の負担」'
+    end
+    if @item.shipping_prefecture_id == nil
+      @message = @message + '「発送元の地域」'
+    end
+    if @item.shipping_date_id == nil
+      @message = @message + '「発送までの日数」'
+    end
+    if @item.price == nil
+      @message = @message + '「値段」'
+    end
+    if @message == ""
+      if @item.save
+        redirect_to root_path
+      else
+        render :new
+      end
     else
+      flash.now[:alert] = "#{@message}が空です。"
       render :new
     end
+
+
   end
 
   def edit
