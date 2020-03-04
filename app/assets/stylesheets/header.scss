@@ -154,7 +154,6 @@
       float: right;
       background-color: white;
       &__like{
-        margin-right: 20px;
         &--icon{
           height: 20px;
           width: 20px;
@@ -169,7 +168,7 @@
         }
       }
       &__information{
-        margin-right: 20px;
+        margin-left: 20px;
         &--icon{
           height: 20px;
           width: 20px;
@@ -184,7 +183,7 @@
         }
       }
       &__todo_list{
-        margin-right: 20px;
+        margin-left: 20px;
         &--icon{
           height: 20px;
           width: 20px;
@@ -199,6 +198,7 @@
         }
       }
       &__mypage{
+        margin-left: 20px;
         &--icon{
           height: 20px;
           width: 20px;
@@ -223,6 +223,7 @@
       &__login-button{
         height: 20px;
         float: right;
+        margin-left: 20px;
       }
     }
   }

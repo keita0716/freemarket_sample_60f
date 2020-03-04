@@ -43,12 +43,22 @@
         - @category_items.first(10).each do |category_item|
           %li.item_list__a
             = link_to item_path(category_item.id) do
-              .item_list__a--image
-                = image_tag Image.where(item_id: category_item.id).first.src.url, height: "190", width: "180"
-                .item_list__a--image_price
-                  = "¥#{category_item.price}"
-              .item_list__a--title
-                = category_item.name
+              - if category_item.buyer_id == nil
+                .item_list__a--image
+                  = image_tag Image.where(item_id: category_item.id).first.src.url, height: "190", width: "180" 
+                  .item_list__a--image_price
+                    = "¥#{category_item.price}"
+                .item_list__a--title
+                  = category_item.name
+              - else
+                .item_list__a--image
+                  = image_tag Image.where(item_id: category_item.id).first.src.url, height: "190", width: "180" 
+                  .item_list__a--image_sold
+                    SOLD
+                  .item_list__a--image_price
+                    = "¥#{category_item.price}"
+                .item_list__a--title
+                  = category_item.name
   .popularities
     .popularity
       .h1
