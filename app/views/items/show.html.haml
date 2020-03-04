@@ -6,12 +6,22 @@
       = @item.name
     .shosaimain__iteminfo.clearfix
       .shosaimain__iteminfo__image
-        .shosaimain__iteminfo__image__main
-        = image_tag @images[0].src.url, height: "300", width: "300",id:"mainImage"
-        .shosaimain__iteminfo__underimage
-          - @images.each do |image|
-            .shosaimain__iteminfo__underimage__sub{data: { url:image.src.url }}
-              = image_tag image.src.url, height: "60", width: "60"
+        - if @item.buyer_id == nil
+          .shosaimain__iteminfo__image__main
+          = image_tag @images[0].src.url, height: "300", width: "300",id:"mainImage"
+          .shosaimain__iteminfo__underimage
+            - @images.each do |image|
+              .shosaimain__iteminfo__underimage__sub{data: { url:image.src.url }}
+                = image_tag image.src.url, height: "60", width: "60"
+        - else
+          .shosaimain__iteminfo__image__main
+          = image_tag @images[0].src.url, height: "300", width: "300",id:"mainImage"
+          .shosaimain__iteminfo__image__sold
+            SOLD
+          .shosaimain__iteminfo__underimage
+            - @images.each do |image|
+              .shosaimain__iteminfo__underimage__sub{data: { url:image.src.url }}
+                = image_tag image.src.url, height: "60", width: "60"
       .shosaimain__iteminfo__table
         %table
           %tbody
