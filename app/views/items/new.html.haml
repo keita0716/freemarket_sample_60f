@@ -114,7 +114,7 @@
           .price__right--price_form
             .price__right--price_form_yen
               ¥
-            = f.number_field :price, id: 'price_calc', class: 'price__right--price_form_input',placeholder: "例) 300", type: "number"
+            = f.number_field :price, min:300, max:9999999, id: 'price_calc', class: 'price__right--price_form_input',placeholder: "例) 300", type: "number"
         .price__right--fee
           .price__right--fee_text
             販売手数料(10%)
