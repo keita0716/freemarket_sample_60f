@@ -70,7 +70,7 @@
         &--area{
           position: absolute;
           top: 100px;
-          width: 760px;
+          width: 810px;
           z-index: 2;
           background-color: white;
           &--list{
@@ -88,11 +88,11 @@
           position: absolute;
           top: 100px;
           left:440px;
-          width: 400px;
+          width: 450px;
           z-index: 3;
           &--list{
             height: 15px;
-            width: 200px;
+            width: 250px;
             background-color: white;
             padding: 10px 10px;
             &:hover{
@@ -103,7 +103,7 @@
         &--area3{
           position: absolute;
           top: 100px;
-          left:660px;
+          left:710px;
           z-index: 4;
           &--list{
             height: 15px;
