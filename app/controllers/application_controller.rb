@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_brands
   before_action :set_categorys
+  before_action :basic_auth
 
   protected
 
@@ -16,6 +17,13 @@ class ApplicationController < ActionController::Base
       @categorysLeft = Category.group(:category_left_id)
       @categorysCenter = Category.group(:category_left_id,:category_center_id)
       @categorysRight = Category.group(:category_left_id,:category_center_id,:category_right_id)
+    end
+
+    private
+    def basic_auth
+      authenticate_or_request_with_http_basic do |username, password|
+        username == 'admin' && password == '12345'
+      end
     end
   end
 
